@@ -1,0 +1,3176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>はぎわら治療院 | 横浜市青葉区 榎が丘</title>
+<meta name="description" content="横浜市青葉区榎が丘のはぎわら治療院。職人の指圧・繊細な鍼灸・メディカルピラティスで心身の本質的な回復へ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@200;300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+
+
+/* ─────────────────────────────────────────────
+   TOKENS
+───────────────────────────────────────────── */
+:root {
+  --c-bg:        #f8f5f0;
+  --c-bg2:       #f0ebe2;
+  --c-bg3:       #e8e0d4;
+  --c-white:     #ffffff;
+  --c-ink:       #28201a;
+  --c-ink2:      #3e3228;
+  --c-ink3:      #6a5e52;
+  --c-forest:    #2a4a3a;
+  --c-forest2:   #3a6050;
+  --c-forest3:   #507868;
+  --c-brown:     #7a5632;
+  --c-brown2:    #9a7248;
+  --c-brown3:    #c09a68;
+  --c-gold:      #a87e42;
+  --c-gold2:     #c89e54;
+  --c-gold3:     #dcc07a;
+  --c-gold-pale: #f0dfc4;
+  --c-teal:      #4a8070;
+  --c-teal2:     #6aa090;
+
+  --f-serif: 'Noto Serif JP', serif;
+  --f-sans:  'Noto Sans JP', sans-serif;
+  --f-latin: 'Cormorant Garamond', serif;
+
+  --ease-out: cubic-bezier(.16,1,.3,1);
+  --ease-in:  cubic-bezier(.7,0,.84,0);
+}
+
+/* ─────────────────────────────────────────────
+   RESET
+───────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:18px}
+body{
+  font-family:var(--f-sans);
+  background:var(--c-bg);
+  color:var(--c-ink);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  line-height:2;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{cursor:pointer;background:none;border:none;font:inherit}
+
+/* ─────────────────────────────────────────────
+   LAYOUT
+───────────────────────────────────────────── */
+.wrap{
+  max-width:1160px;
+  margin:0 auto;
+  padding:0 clamp(20px,5vw,64px);
+}
+.wrap--narrow{max-width:820px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+
+/* ─────────────────────────────────────────────
+   SCROLL REVEAL
+───────────────────────────────────────────── */
+[data-reveal]{
+  opacity:0;
+  transform:translateY(32px);
+  transition:opacity .85s var(--ease-out), transform .85s var(--ease-out);
+}
+[data-reveal].is-visible{opacity:1;transform:none}
+[data-reveal][data-delay="1"]{transition-delay:.12s}
+[data-reveal][data-delay="2"]{transition-delay:.24s}
+[data-reveal][data-delay="3"]{transition-delay:.36s}
+[data-reveal][data-delay="4"]{transition-delay:.48s}
+
+/* ─────────────────────────────────────────────
+   TYPOGRAPHY HELPERS
+───────────────────────────────────────────── */
+.label{
+  font-family:var(--f-latin);
+  font-size:.68rem;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--c-gold);
+  display:block;
+}
+.title-serif{
+  font-family:var(--f-serif);
+  font-weight:300;
+  line-height:1.5;
+}
+.line{
+  display:block;
+  width:36px;height:1px;
+  background:var(--c-gold);
+}
+.line--c{margin:0 auto}
+
+/* ─────────────────────────────────────────────
+   ════════════════════
+   NAV
+   ════════════════════
+───────────────────────────────────────────── */
+#site-nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:500;
+  height:68px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 clamp(20px,4vw,56px);
+  transition:background .45s, box-shadow .45s;
+}
+#site-nav.scrolled{
+  background:rgba(248,245,240,.96);
+  backdrop-filter:blur(16px);
+  box-shadow:0 1px 0 rgba(0,0,0,.06);
+}
+
+.nav-logo{display:flex;flex-direction:column;gap:1px}
+.nav-logo__ja{
+  font-family:var(--f-serif);
+  font-weight:400;
+  font-size:1.05rem;
+  letter-spacing:.06em;
+  color:#fff;
+  transition:color .4s;
+  line-height:1.1;
+}
+.nav-logo__en{
+  font-family:var(--f-latin);
+  font-style:italic;
+  font-size:.58rem;
+  letter-spacing:.2em;
+  color:rgba(255,255,255,.55);
+  transition:color .4s;
+}
+#site-nav.scrolled .nav-logo__ja{color:var(--c-ink)}
+#site-nav.scrolled .nav-logo__en{color:var(--c-gold)}
+
+.nav-menu{display:flex;align-items:center;gap:32px}
+.nav-menu a{
+  font-family:var(--f-sans);
+  font-size:.72rem;
+  font-weight:300;
+  letter-spacing:.1em;
+  color:rgba(255,255,255,.72);
+  position:relative;
+  transition:color .3s;
+}
+.nav-menu a::after{
+  content:'';position:absolute;
+  bottom:-4px;left:0;
+  width:0;height:1px;
+  background:var(--c-gold2);
+  transition:width .35s var(--ease-out);
+}
+.nav-menu a:hover{color:#fff}
+.nav-menu a:hover::after{width:100%}
+#site-nav.scrolled .nav-menu a{color:var(--c-ink3)}
+#site-nav.scrolled .nav-menu a:hover{color:var(--c-gold)}
+
+.nav-book{
+  font-size:.68rem !important;
+  padding:8px 22px;
+  border:1px solid rgba(255,255,255,.32);
+  transition:all .3s !important;
+}
+.nav-book::after{display:none !important}
+.nav-book:hover{background:var(--c-gold) !important;border-color:var(--c-gold) !important;color:#fff !important}
+#site-nav.scrolled .nav-book{border-color:var(--c-gold) !important;color:var(--c-gold) !important}
+#site-nav.scrolled .nav-book:hover{background:var(--c-gold) !important;color:#fff !important}
+
+.nav-burger{
+  display:none;flex-direction:column;gap:5px;
+  padding:6px;
+}
+.nav-burger span{
+  display:block;width:22px;height:1px;
+  background:rgba(255,255,255,.8);
+  transition:background .3s;
+}
+#site-nav.scrolled .nav-burger span{background:var(--c-ink)}
+
+/* Mobile drawer */
+#nav-drawer{
+  display:none;
+  position:fixed;inset:0;
+  z-index:490;
+  background:rgba(248,245,240,.98);
+  backdrop-filter:blur(20px);
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
+}
+#nav-drawer.open{display:flex}
+.drawer-close{
+  position:absolute;top:20px;right:clamp(20px,4vw,56px);
+  font-size:1.4rem;color:var(--c-ink3);
+  transition:color .3s;
+}
+.drawer-close:hover{color:var(--c-gold)}
+#nav-drawer a{
+  font-family:var(--f-serif);
+  font-size:1.6rem;font-weight:300;
+  color:var(--c-ink);
+  letter-spacing:.06em;
+  transition:color .3s;
+}
+#nav-drawer a:hover{color:var(--c-gold)}
+
+/* ─────────────────────────────────────────────
+   ════════════════════
+   HERO
+   ════════════════════
+───────────────────────────────────────────── */
+#hero{
+  position:relative;
+  height:100svh;
+  min-height:700px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+
+.hero-canvas{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(155deg,
+      #1e4038 0%,
+      #3a5e4c 28%,
+      #4a3420 60%,
+      #2a1e12 100%);
+}
+/* Luminous warm accent */
+.hero-canvas::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 60% at 68% 42%, rgba(160,120,64,.18) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 50% at 18% 72%, rgba(107,74,40,.22) 0%, transparent 55%),
+    radial-gradient(ellipse 30% 35% at 45% 15%, rgba(28,51,40,.5) 0%, transparent 50%);
+}
+/* Grain texture */
+.hero-canvas::after{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='.035'/%3E%3C/svg%3E");
+  opacity:.6;
+}
+
+/* Photo area — right side */
+.hero-photo{
+  position:absolute;
+  right:0;top:0;bottom:0;
+  width:48%;
+  overflow:hidden;
+}
+.hero-photo-inner{
+  width:100%;height:100%;
+  background:linear-gradient(135deg,#1a2e22,#2a1810);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:12px;
+}
+.hero-photo-inner img{
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:.55;
+  mix-blend-mode:luminosity;
+}
+.hero-photo::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(to right, #0a1f18 0%, transparent 40%);
+  z-index:1;
+}
+.hero-photo-hint{
+  font-family:var(--f-sans);
+  font-size:.7rem;
+  color:rgba(255,255,255,.18);
+  letter-spacing:.1em;
+}
+
+/* Content */
+.hero-content{
+  position:relative;z-index:2;
+  width:100%;
+  padding-top:68px;
+}
+
+.hero-pre{
+  font-family:var(--f-latin);
+  font-size:.72rem;
+  letter-spacing:.38em;
+  text-transform:uppercase;
+  color:var(--c-gold2);
+  margin-bottom:28px;
+  opacity:0;
+  animation:hFadeUp .9s .3s var(--ease-out) forwards;
+}
+.hero-h1{
+  font-family:var(--f-serif);
+  font-weight:200;
+  font-size:clamp(2.6rem,6vw,5rem);
+  color:#fff;
+  line-height:1.3;
+  margin-bottom:10px;
+  opacity:0;
+  animation:hFadeUp .9s .5s var(--ease-out) forwards;
+}
+.hero-h1 em{
+  font-style:normal;
+  color:var(--c-gold3);
+}
+.hero-en{
+  font-family:var(--f-latin);
+  font-style:italic;
+  font-size:clamp(.95rem,1.8vw,1.3rem);
+  color:rgba(255,255,255,.38);
+  letter-spacing:.08em;
+  margin-bottom:44px;
+  opacity:0;
+  animation:hFadeUp .9s .7s var(--ease-out) forwards;
+}
+.hero-body{
+  font-family:var(--f-serif);
+  font-weight:300;
+  font-size:clamp(.9rem,1.3vw,1rem);
+  color:rgba(255,255,255,.72);
+  line-height:2.4;
+  max-width:380px;
+  margin-bottom:52px;
+  opacity:0;
+  animation:hFadeUp .9s .9s var(--ease-out) forwards;
+}
+.hero-btns{
+  display:flex;flex-wrap:wrap;gap:14px;
+  opacity:0;
+  animation:hFadeUp .9s 1.1s var(--ease-out) forwards;
+}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--f-sans);
+  font-size:.75rem;font-weight:300;
+  letter-spacing:.12em;
+  padding:14px 36px;
+  border:1px solid;
+  transition:all .35s;
+}
+.btn-fill{
+  background:var(--c-gold);border-color:var(--c-gold);
+  color:#fff;
+}
+.btn-fill:hover{background:var(--c-gold2);border-color:var(--c-gold2)}
+.btn-ghost-w{
+  background:transparent;
+  border-color:rgba(255,255,255,.24);
+  color:rgba(255,255,255,.6);
+}
+.btn-ghost-w:hover{border-color:var(--c-gold3);color:var(--c-gold3)}
+.btn-ghost-d{
+  background:transparent;
+  border-color:rgba(160,120,64,.35);
+  color:var(--c-gold);
+}
+.btn-ghost-d:hover{background:var(--c-gold);border-color:var(--c-gold);color:#fff}
+
+.hero-logo{
+  position:absolute;
+  bottom:12px;
+  right:12px;
+  width:clamp(300px,38vw,500px);
+  z-index:3;
+  opacity:0;
+  animation:hFadeUp .9s 1.2s var(--ease-out) forwards;
+}
+.hero-logo img{width:100%;height:auto;display:block}
+
+/* Scroll cue */
+.hero-scroll{
+  position:absolute;bottom:36px;left:50%;
+  transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  opacity:0;
+  animation:hFadeIn 1s 1.8s ease forwards;
+}
+.hero-scroll span{
+  font-family:var(--f-latin);
+  font-size:.58rem;letter-spacing:.28em;
+  color:rgba(255,255,255,.28);
+  text-transform:uppercase;
+}
+.hero-scroll-bar{
+  width:1px;height:50px;
+  background:linear-gradient(to bottom,rgba(255,255,255,.28),transparent);
+  animation:scrollPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes hFadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
+}
+@keyframes hFadeIn{
+  from{opacity:0}to{opacity:1}
+}
+@keyframes scrollPulse{
+  0%,100%{opacity:.25}50%{opacity:.65}
+}
+
+/* ─────────────────────────────────────────────
+   ════════════════════
+   ANNOUNCEMENT BAR
+   ════════════════════
+───────────────────────────────────────────── */
+#announce{
+  background:linear-gradient(90deg,#3a5e4c 0%,#4a3828 100%);
+  height:50px;
+  display:flex;align-items:center;justify-content:center;
+  gap:18px;
+  padding:0 clamp(20px,4vw,56px);
+  overflow:hidden;
+}
+.announce-badge{
+  font-family:var(--f-latin);
+  font-size:.58rem;letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--c-gold2);
+  border:1px solid rgba(192,152,80,.4);
+  padding:3px 10px;white-space:nowrap;
+}
+.announce-text{
+  font-family:var(--f-serif);
+  font-size:.8rem;
+  color:rgba(255,255,255,.75);
+  letter-spacing:.03em;
+}
+.announce-text strong{color:var(--c-gold3);font-weight:400}
+
+/* ─────────────────────────────────────────────
+   臨時休業バナー
+───────────────────────────────────────────── */
+#closure{
+  background:linear-gradient(135deg,#4a1a0a 0%,#3a1814 50%,#2a0e0c 100%);
+  border-top:2px solid rgba(220,90,50,.45);
+  border-bottom:2px solid rgba(220,90,50,.2);
+  padding:clamp(18px,3vw,28px) clamp(20px,4vw,56px);
+  display:flex;align-items:flex-start;justify-content:center;
+  gap:clamp(16px,3vw,32px);
+}
+.closure-badge{
+  font-family:var(--f-serif);
+  font-size:.7rem;letter-spacing:.14em;
+  color:#e87050;
+  border:1px solid rgba(232,112,74,.55);
+  padding:5px 14px;white-space:nowrap;
+  flex-shrink:0;
+  background:rgba(232,112,74,.08);
+  margin-top:3px;
+}
+.closure-body{display:flex;flex-direction:column;gap:7px;max-width:720px}
+.closure-title{
+  font-family:var(--f-serif);
+  font-size:clamp(1rem,1.4vw,1.15rem);
+  color:#fff;font-weight:400;letter-spacing:.06em;
+}
+.closure-text{
+  font-size:.8rem;font-weight:200;
+  color:rgba(255,255,255,.62);
+  letter-spacing:.03em;line-height:1.9;
+}
+.closure-dates{
+  font-family:var(--f-serif);
+  font-size:.86rem;
+  color:var(--c-gold3);
+  letter-spacing:.05em;
+  margin-top:2px;
+  line-height:2;
+}
+.closure-detail{
+  font-size:.78rem;font-weight:200;
+  color:rgba(255,255,255,.55);
+  letter-spacing:.03em;line-height:2;
+  border-top:1px solid rgba(255,255,255,.1);
+  padding-top:8px;
+  margin-top:8px;
+}
+
+/* ─────────────────────────────────────────────
+   キャンペーン
+───────────────────────────────────────────── */
+#campaign{background:linear-gradient(160deg,#2a1a08 0%,#1c1006 100%)}
+.campaign-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:clamp(16px,2.5vw,24px);
+  margin-top:clamp(40px,6vw,64px);
+}
+.campaign-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(200,160,80,.2);
+  border-radius:8px;
+  overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.campaign-card-head{
+  background:linear-gradient(135deg,rgba(180,130,50,.18),rgba(140,100,30,.08));
+  border-bottom:1px solid rgba(200,160,80,.15);
+  padding:clamp(18px,2.5vw,26px);
+}
+.campaign-badge{
+  font-family:var(--f-latin);
+  font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--c-gold2);
+  border:1px solid rgba(192,152,80,.4);
+  padding:3px 10px;
+}
+.campaign-name{
+  font-family:var(--f-serif);
+  font-size:clamp(1rem,1.6vw,1.15rem);
+  color:#fff;font-weight:400;letter-spacing:.06em;
+  margin-top:12px;
+}
+.campaign-card-body{
+  padding:clamp(18px,2.5vw,26px);
+  flex:1;
+}
+.campaign-body-text{
+  font-size:.84rem;font-weight:200;
+  color:rgba(255,255,255,.65);
+  line-height:2.2;letter-spacing:.03em;
+}
+.campaign-card-foot{
+  padding:14px clamp(18px,2.5vw,26px);
+  border-top:1px solid rgba(200,160,80,.12);
+}
+.campaign-period{
+  font-family:var(--f-serif);
+  font-size:.76rem;
+  color:var(--c-gold3);
+  letter-spacing:.05em;
+}
+
+/* ─────────────────────────────────────────────
+   ════════════════════
+   SECTION WRAPPERS
+   ════════════════════
+───────────────────────────────────────────── */
+.section{padding:clamp(80px,12vw,140px) 0}
+.section--dark{background:var(--c-ink)}
+.section--forest{background:var(--c-forest)}
+.section--cream{background:var(--c-bg)}
+.section--warm{background:var(--c-bg2)}
+.section--deeper{background:var(--c-bg3)}
+.section--brown-soft{background:#f5ede0}
+
+.section-head{
+  margin-bottom:clamp(48px,7vw,80px);
+}
+.section-head.center{text-align:center}
+.section-head .label{margin-bottom:16px}
+.section-head .title-serif{font-size:clamp(1.55rem,3vw,2.5rem)}
+.section-head .line{margin-top:22px}
+.section-head .sub{
+  font-family:var(--f-sans);
+  font-size:.86rem;font-weight:200;
+  color:var(--c-ink3);
+  line-height:2.2;
+  margin-top:20px;
+  max-width:580px;
+}
+.section-head.center .sub{margin:20px auto 0}
+
+/* ─────────────────────────────────────────────
+   ════════════════════
+   PHILOSOPHY
+   ════════════════════
+───────────────────────────────────────────── */
+#philosophy .inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(48px,8vw,96px);
+  align-items:center;
+}
+
+.phil-text .label{margin-bottom:20px}
+.phil-heading{
+  font-family:var(--f-serif);
+  font-size:clamp(1.5rem,2.8vw,2.2rem);
+  font-weight:300;
+  line-height:1.55;
+  color:var(--c-ink);
+  margin-bottom:28px;
+}
+.phil-quote{
+  font-family:var(--f-serif);
+  font-size:clamp(1rem,1.6vw,1.2rem);
+  font-weight:300;
+  line-height:2;
+  color:var(--c-ink2);
+  border-left:2px solid var(--c-gold-pale);
+  padding-left:22px;
+  margin:28px 0;
+}
+.phil-quote em{font-style:normal;color:var(--c-gold)}
+.phil-body{
+  font-size:.85rem;font-weight:200;
+  color:var(--c-ink3);line-height:2.3;
+}
+
+/* Pillar stack */
+.pillars{display:flex;flex-direction:column;gap:2px}
+.pillar{
+  display:grid;
+  grid-template-columns:48px 1fr;
+  gap:18px;
+  align-items:start;
+  padding:28px 32px;
+  transition:filter .3s;
+}
+.pillar:nth-child(1){background:var(--c-forest)}
+.pillar:nth-child(2){background:#2a1c10}
+.pillar:nth-child(3){background:linear-gradient(135deg,#1e3028,#2a1c10)}
+.pillar:hover{filter:brightness(1.08)}
+
+.pillar-n{
+  font-family:var(--f-latin);
+  font-size:1.5rem;
+  color:var(--c-gold2);
+  line-height:1;
+  padding-top:4px;
+}
+.pillar-title{
+  font-family:var(--f-serif);
+  font-size:.96rem;
+  color:#fff;margin-bottom:6px;
+}
+.pillar-desc{
+  font-size:.76rem;font-weight:200;
+  color:rgba(255,255,255,.48);
+  line-height:1.9;
+}
+
+/* SNS Strip */
+.sns-strip{background:var(--c-bg);padding:36px 0;border-top:1px solid rgba(168,126,66,.12)}
+.sns-strip-inner{display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap}
+.sns-strip-label{font-family:var(--f-latin);font-size:1rem;letter-spacing:.3em;text-transform:uppercase;color:var(--c-gold);flex-shrink:0}
+.phil-sns-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:center}
+.phil-sns-line-wrap{display:flex;align-items:center;gap:14px}
+.phil-sns-btn{display:inline-flex;align-items:center;gap:12px;font-size:1rem;font-weight:400;letter-spacing:.05em;padding:14px 26px;border-radius:4px;border:none;transition:all .3s;text-decoration:none;white-space:nowrap;color:#fff}
+.phil-sns-btn svg{width:22px;height:22px;fill:currentColor;flex-shrink:0}
+.phil-sns-btn--line{background:#06C755;box-shadow:0 2px 12px rgba(6,199,85,.3)}.phil-sns-btn--line:hover{background:#05b84d;transform:translateY(-2px);box-shadow:0 6px 20px rgba(6,199,85,.4)}
+.phil-sns-btn--x{background:#111;box-shadow:0 2px 12px rgba(0,0,0,.2)}.phil-sns-btn--x:hover{background:#333;transform:translateY(-2px)}
+.phil-sns-btn--ig{background:linear-gradient(135deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888);box-shadow:0 2px 12px rgba(188,24,136,.25)}.phil-sns-btn--ig:hover{filter:brightness(1.1);transform:translateY(-2px)}
+.phil-qr{width:80px;height:80px;border-radius:6px;border:2px solid rgba(6,199,85,.25);flex-shrink:0;background:#fff;padding:3px}
+@media(max-width:700px){.sns-strip-inner{flex-direction:column;gap:20px}.sns-strip-label{display:none}}
+
+/* ─────────────────────────────────────────────
+   ════════════════════
+   SERVICES
+   ════════════════════
+───────────────────────────────────────────── */
+#services{background:linear-gradient(160deg,#3c3428 0%,#404040 55%,#304038 100%)}
+
+.svc-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  background:#3a3a3a;
+  margin-top:clamp(40px,6vw,64px);
+}
+.svc-card{
+  background:#363230;
+  padding:44px 36px;
+  position:relative;
+  overflow:hidden;
+  transition:background .35s;
+}
+.svc-card:hover{background:#3e3a38}
+.svc-card::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;
+  width:0;height:2px;
+  transition:width .55s var(--ease-out);
+}
+.svc-card:hover::after{width:100%}
+
+.svc-card:nth-child(1)::after,.svc-card:nth-child(2)::after{background:var(--c-teal)}
+.svc-card:nth-child(3)::after,.svc-card:nth-child(5)::after{background:var(--c-gold)}
+.svc-card:nth-child(4)::after{background:var(--c-brown3)}
+.svc-card:nth-child(6)::after{background:linear-gradient(90deg,var(--c-gold),var(--c-brown3))}
+
+.svc-no{
+  font-family:var(--f-latin);
+  font-size:.6rem;letter-spacing:.25em;
+  color:var(--c-gold);display:block;
+  margin-bottom:24px;
+}
+.svc-icon{font-size:1.3rem;margin-bottom:18px;display:block;opacity:.5}
+.svc-name{
+  font-family:var(--f-serif);
+  font-size:1.25rem;font-weight:400;
+  color:#fff;margin-bottom:4px;
+}
+.svc-name-en{
+  font-family:var(--f-latin);font-style:italic;
+  font-size:.78rem;color:var(--c-gold2);
+  display:block;margin-bottom:20px;
+}
+.svc-desc{
+  font-size:.82rem;font-weight:300;
+  color:rgba(255,255,255,.68);
+  line-height:2.1;margin-bottom:22px;
+}
+.svc-tag{
+  font-size:.62rem;font-weight:300;
+  letter-spacing:.07em;
+  color:var(--c-gold);
+  border:1px solid rgba(160,120,64,.3);
+  padding:4px 12px;display:inline-block;
+}
+
+.svc-card.svc-coming{
+  background:rgba(160,120,64,.06);
+  border:1px solid rgba(160,120,64,.18);
+}
+.svc-card.svc-coming .svc-name{color:var(--c-gold3)}
+
+/* ─────────────────────────────────────────────
+   ════════════════════
+   STAFF
+   ════════════════════
+───────────────────────────────────────────── */
+#staff.section--warm{}
+
+.staff-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+
+.staff-card{
+  background:var(--c-white);
+  border:1px solid #e0d8cc;
+  padding:clamp(36px,5vw,60px);
+  position:relative;
+  overflow:hidden;
+  transition:box-shadow .45s,transform .45s;
+}
+.staff-card:hover{
+  box-shadow:0 18px 56px rgba(0,0,0,.08);
+  transform:translateY(-4px);
+}
+
+/* Decorative corner */
+.staff-card::before{
+  content:'';
+  position:absolute;
+  top:0;right:0;
+  border-style:solid;
+  border-width:0 64px 64px 0;
+}
+.staff-card--director::before{border-color:transparent rgba(28,51,40,.06) transparent transparent}
+.staff-card--vdirector::before{border-color:transparent rgba(160,120,64,.08) transparent transparent}
+
+/* Photo placeholder in card */
+.staff-photo{
+  width:130px;height:130px;
+  border-radius:50%;
+  overflow:hidden;
+  margin-bottom:24px;
+  border:3px solid var(--c-gold-pale);
+}
+.staff-photo-img{
+  width:100%;height:100%;
+  object-fit:cover;
+}
+.staff-card--director .staff-photo-img{
+  transform:scale(1.2);
+  object-position:center 15%;
+}
+.staff-photo-placeholder{
+  width:100%;height:100%;
+  background:linear-gradient(135deg,var(--c-bg2),var(--c-bg3));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--f-serif);
+  font-size:1.2rem;color:var(--c-ink3);
+}
+
+.staff-role{
+  font-family:var(--f-latin);
+  font-size:.65rem;letter-spacing:.28em;
+  color:var(--c-gold);text-transform:uppercase;
+  margin-bottom:8px;
+}
+.staff-name-ja{
+  font-family:var(--f-serif);
+  font-size:clamp(1.5rem,2.2vw,1.9rem);
+  font-weight:300;color:var(--c-ink);
+  margin-bottom:3px;
+}
+.staff-name-en{
+  font-family:var(--f-latin);font-style:italic;
+  font-size:.88rem;color:var(--c-ink3);
+  display:block;margin-bottom:24px;
+}
+.staff-line{margin-bottom:22px}
+.staff-philo{
+  font-family:var(--f-serif);
+  font-size:.94rem;font-weight:300;
+  font-style:italic;
+  color:var(--c-forest);
+  line-height:1.9;margin-bottom:20px;
+}
+.staff-bio{
+  font-size:.86rem;font-weight:300;
+  color:var(--c-ink2);line-height:2.3;
+  margin-bottom:28px;
+}
+.staff-tags{display:flex;flex-wrap:wrap;gap:8px}
+.staff-tag{
+  font-size:.66rem;font-weight:300;
+  color:var(--c-forest2);
+  background:rgba(58,107,82,.07);
+  padding:5px 14px;
+  letter-spacing:.04em;
+}
+
+/* ─────────────────────────────────────────────
+   ════════════════════
+   COURSES
+   ════════════════════
+───────────────────────────────────────────── */
+#courses{background:#f5ede0}
+
+.courses-intro{
+  max-width:620px;
+  margin:20px auto 0;
+  font-size:.86rem;font-weight:200;
+  color:var(--c-ink3);line-height:2.3;
+  text-align:center;
+}
+
+.courses-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+  margin-top:clamp(40px,6vw,64px);
+}
+
+.course{
+  background:var(--c-white);
+  display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+  border:1px solid #e0d4c4;
+  transition:box-shadow .4s,transform .4s;
+}
+.course:hover{
+  box-shadow:0 20px 52px rgba(0,0,0,.09);
+  transform:translateY(-4px);
+}
+
+/* Top accent */
+.course__bar{
+  height:3px;
+  position:absolute;top:0;left:0;right:0;
+}
+.course--ease .course__bar{background:linear-gradient(90deg,var(--c-teal),var(--c-teal2))}
+.course--basic .course__bar{background:linear-gradient(90deg,var(--c-gold),var(--c-gold2))}
+.course--active .course__bar{background:linear-gradient(90deg,var(--c-brown),var(--c-brown2))}
+
+.course__body{padding:clamp(28px,3.5vw,44px);flex:1;display:flex;flex-direction:column}
+
+.course__no{
+  font-family:var(--f-latin);
+  font-size:3.2rem;font-weight:300;
+  line-height:1;margin-bottom:18px;
+  opacity:.14;
+  color:var(--c-ink);
+}
+.course--ease  .course__no{color:var(--c-teal);opacity:.3}
+.course--basic .course__no{color:var(--c-gold);opacity:.3}
+.course--active .course__no{color:var(--c-brown);opacity:.3}
+
+.course__badge{
+  display:inline-block;
+  font-size:.62rem;font-weight:300;
+  letter-spacing:.07em;
+  padding:4px 12px;
+  margin-bottom:14px;
+}
+.course--ease .course__badge{background:rgba(90,138,122,.1);color:#3d7a68}
+.course--basic .course__badge{background:rgba(160,120,64,.1);color:var(--c-gold)}
+.course--active .course__badge{background:rgba(107,74,40,.1);color:var(--c-brown)}
+
+.course__name{
+  font-family:var(--f-serif);
+  font-size:1.18rem;font-weight:400;
+  color:var(--c-ink);margin-bottom:4px;
+}
+.course__en{
+  font-family:var(--f-latin);font-style:italic;
+  font-size:.76rem;color:var(--c-ink3);
+  display:block;margin-bottom:16px;
+}
+
+.course__tools{
+  display:flex;flex-wrap:wrap;
+  align-items:center;gap:6px;
+  margin-bottom:20px;
+}
+.course__tool{
+  font-size:.65rem;font-weight:300;
+  color:var(--c-ink3);
+  background:var(--c-bg2);
+  padding:3px 10px;
+  letter-spacing:.05em;
+}
+
+.course__desc{
+  font-size:.81rem;font-weight:200;
+  color:var(--c-ink3);line-height:2.2;
+  margin-bottom:22px;flex:1;
+}
+
+.course__points{margin-bottom:28px}
+.course__point{
+  font-size:.76rem;font-weight:200;
+  color:var(--c-ink2);
+  padding:8px 0 8px 18px;
+  border-bottom:1px solid var(--c-bg3);
+  position:relative;line-height:1.7;
+}
+.course__point:first-child{border-top:1px solid var(--c-bg3)}
+.course__point::before{
+  content:'';
+  position:absolute;left:0;top:50%;
+  transform:translateY(-50%);
+  width:7px;height:1px;
+}
+.course--ease  .course__point::before{background:var(--c-teal)}
+.course--basic .course__point::before{background:var(--c-gold)}
+.course--active .course__point::before{background:var(--c-brown)}
+
+.course__cta{
+  display:block;
+  font-size:.72rem;font-weight:300;
+  letter-spacing:.1em;
+  text-align:center;
+  padding:13px;
+  border:1px solid;
+  margin-top:auto;
+  transition:all .3s;
+}
+.course--ease .course__cta{border-color:rgba(90,138,122,.4);color:var(--c-teal)}
+.course--ease .course__cta:hover{background:var(--c-teal);border-color:var(--c-teal);color:#fff}
+.course--basic .course__cta{border-color:rgba(160,120,64,.4);color:var(--c-gold)}
+.course--basic .course__cta:hover{background:var(--c-gold);border-color:var(--c-gold);color:#fff}
+.course--active .course__cta{border-color:rgba(107,74,40,.4);color:var(--c-brown)}
+.course--active .course__cta:hover{background:var(--c-brown);border-color:var(--c-brown);color:#fff}
+
+/* Consultation note */
+.courses-consult{
+  margin-top:32px;
+  background:var(--c-white);
+  border:1px solid #ddd2bc;
+  padding:22px 28px;
+  display:flex;align-items:center;
+  flex-wrap:wrap;gap:16px;
+}
+.courses-consult__icon{color:var(--c-gold);font-size:1.1rem;flex-shrink:0}
+.courses-consult__text{
+  flex:1;font-size:.81rem;font-weight:200;
+  color:var(--c-ink3);line-height:1.9;
+}
+.courses-consult__link{
+  font-size:.73rem;font-weight:300;
+  color:var(--c-gold);
+  border-bottom:1px solid var(--c-gold-pale);
+  padding-bottom:2px;
+  white-space:nowrap;
+  transition:color .3s,border-color .3s;
+}
+.courses-consult__link:hover{color:var(--c-brown);border-color:var(--c-brown)}
+
+/* ─────────────────────────────────────────────
+   ════════════════════
+   PILATES STUDIO
+   ════════════════════
+───────────────────────────────────────────── */
+#pilates{
+  position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#2a4a3c 0%,#3a5a4a 100%);
+}
+#pilates::before{
+  content:'PILATES';
+  position:absolute;
+  font-family:var(--f-latin);
+  font-size:clamp(80px,18vw,220px);
+  color:rgba(255,255,255,.02);
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  white-space:nowrap;letter-spacing:.06em;
+  pointer-events:none;
+  user-select:none;
+}
+
+.pilates-section-head{
+  display:flex;
+  align-items:flex-start;
+  gap:clamp(32px,6vw,80px);
+}
+.pilates-head-text{flex:1}
+.pilates-head-logo{flex-shrink:0;width:clamp(300px,38vw,500px);display:flex;flex-direction:column;align-items:center}
+.pilates-head-logo > img{width:100%;height:auto;display:block}
+.pilates-head-photo{
+  width:260px;height:260px;
+  border-radius:50%;
+  overflow:hidden;
+  margin:-6px auto 0;
+  background:#d8cfc5;
+  box-shadow:0 6px 28px rgba(0,0,0,.22);
+}
+.pilates-head-photo img{
+  width:100%;height:100%;
+  object-fit:contain;
+  display:block;
+}
+.pilates-head-photo-name{
+  font-family:var(--f-serif);
+  font-size:.88rem;font-weight:300;
+  color:rgba(255,255,255,.75);
+  margin-top:14px;
+  letter-spacing:.06em;
+  text-align:center;
+}
+#pilates .course__point{color:rgba(220,200,160,.9);border-color:rgba(255,255,255,.1)}
+#pilates .course__point:first-child{border-top-color:rgba(255,255,255,.1)}
+
+.pilates-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(48px,8vw,88px);
+  align-items:center;
+  position:relative;
+}
+
+.pilates-left .label{color:rgba(192,152,80,.85);margin-bottom:20px}
+.pilates-title{
+  font-family:var(--f-serif);
+  font-weight:200;
+  font-size:clamp(1.5rem,2.8vw,2.3rem);
+  color:#fff;line-height:1.5;
+  margin-bottom:22px;
+}
+.pilates-line{background:var(--c-gold2);margin-bottom:28px}
+.pilates-lead{
+  font-family:var(--f-serif);
+  font-size:clamp(.96rem,1.4vw,1.08rem);
+  font-weight:300;
+  color:rgba(255,255,255,.85);
+  line-height:2.2;margin-bottom:16px;
+}
+.pilates-body{
+  font-size:.92rem;font-weight:300;
+  color:rgba(255,255,255,.82);
+  line-height:2.3;margin-bottom:36px;
+}
+/* pilates section 全体の文字底上げ */
+#pilates p:not([style*="font-size"]),
+#pilates li:not([style*="font-size"]){font-size:.88rem;color:rgba(255,255,255,.8)}
+#pilates .course__point{color:rgba(255,255,255,.78);font-size:.82rem}
+#pilates .p-flow-desc{color:rgba(255,255,255,.78);font-size:.82rem}
+.opening-pill{
+  display:inline-flex;align-items:center;gap:16px;
+  border:1px solid rgba(192,152,80,.35);
+  background:rgba(160,120,64,.08);
+  padding:16px 26px;margin-bottom:36px;
+}
+.opening-pill__label{
+  font-family:var(--f-latin);font-size:.58rem;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--c-gold2);
+}
+.opening-pill__date{
+  font-family:var(--f-serif);font-size:1rem;
+  color:#fff;
+}
+
+/* Floor diagram */
+.floors{display:flex;flex-direction:column;gap:2px}
+.floor-connector{
+  text-align:center;
+  font-family:var(--f-latin);font-size:.58rem;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.2);
+  padding:6px 0;
+}
+.floor{
+  display:flex;align-items:center;gap:16px;
+  padding:18px 22px;
+}
+.floor--2{background:rgba(28,51,40,.7)}
+.floor--3{
+  background:rgba(160,120,64,.15);
+  border:1px solid rgba(160,120,64,.3);
+}
+.floor__num{
+  font-family:var(--f-latin);
+  font-size:1.5rem;color:var(--c-gold2);
+  min-width:28px;line-height:1;
+}
+.floor__name{
+  font-family:var(--f-serif);
+  font-size:.93rem;color:#fff;margin-bottom:3px;
+}
+.floor__sub{
+  font-size:.7rem;font-weight:200;
+  color:rgba(255,255,255,.4);
+}
+
+/* Right panel */
+.pilates-panel{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  padding:clamp(28px,4vw,48px);
+}
+.pilates-panel__title{
+  font-family:var(--f-serif);
+  font-size:1.25rem;color:#fff;margin-bottom:4px;
+}
+.pilates-panel__sub{
+  font-family:var(--f-latin);font-style:italic;
+  font-size:.78rem;color:var(--c-gold2);
+  display:block;margin-bottom:32px;
+}
+.feat{
+  display:flex;gap:16px;
+  padding:18px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.feat:last-child{border-bottom:none}
+.feat__icon{
+  width:32px;height:32px;
+  border:1px solid rgba(192,152,80,.28);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:.8rem;color:var(--c-gold2);
+}
+.feat__title{
+  font-family:var(--f-serif);
+  font-size:.88rem;color:rgba(255,255,255,.85);
+  margin-bottom:4px;
+}
+.feat__body{
+  font-size:.76rem;font-weight:300;
+  color:rgba(255,255,255,.62);line-height:1.9;
+}
+
+/* ─────────────────────────────────────────────
+   ════════════════════
+   ACCESS
+   ════════════════════
+───────────────────────────────────────────── */
+#access{background:var(--c-bg3)}
+
+.access-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(36px,6vw,64px);
+}
+
+.access-map{
+  aspect-ratio:4/3;
+  background:#d8d2c8;
+  overflow:hidden;
+  position:relative;
+}
+.access-map iframe{
+  width:100%;height:100%;border:none;
+  filter:sepia(12%) contrast(1.05) saturate(.9);
+}
+.map-hold{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:10px;
+  background:linear-gradient(135deg,#d0c8bc,#c0b8ac);
+}
+.map-hold p{
+  font-size:.76rem;color:#999;
+  letter-spacing:.08em;
+}
+
+.access-info__title{
+  font-family:var(--f-serif);
+  font-size:1.15rem;color:var(--c-ink);
+  margin-bottom:28px;
+}
+.access-table{width:100%;border-collapse:collapse}
+.access-table tr{border-bottom:1px solid var(--c-bg2)}
+.access-table tr:first-child{border-top:1px solid var(--c-bg2)}
+.access-table td{
+  padding:17px 0;
+  vertical-align:top;
+  font-size:.82rem;
+}
+.access-table td:first-child{
+  font-size:.7rem;font-weight:400;
+  color:var(--c-gold);
+  letter-spacing:.08em;
+  width:74px;padding-top:19px;
+}
+.access-table td:last-child{
+  font-weight:200;color:var(--c-ink3);
+  line-height:2;
+}
+.access-note{
+  margin-top:22px;
+  padding:17px 20px;
+  background:var(--c-white);
+  border-left:2px solid var(--c-gold-pale);
+  font-size:.76rem;font-weight:200;
+  color:var(--c-ink3);line-height:1.9;
+}
+
+/* ─────────────────────────────────────────────
+   ════════════════════
+   CONTACT / CTA
+   ════════════════════
+───────────────────────────────────────────── */
+#contact{
+  background:linear-gradient(160deg,#263c30 0%,#2e2818 100%);
+  text-align:center;
+}
+#contact .label{margin-bottom:16px}
+.contact-heading{
+  font-family:var(--f-serif);
+  font-size:clamp(1.8rem,3.5vw,2.8rem);
+  font-weight:200;color:#fff;
+  margin-bottom:18px;
+}
+.contact-body{
+  font-size:.88rem;font-weight:300;
+  color:rgba(255,255,255,.68);
+  line-height:2.2;margin-bottom:52px;
+}
+.contact-tel{
+  font-family:var(--f-latin);
+  font-size:clamp(2rem,5vw,3.6rem);
+  font-weight:300;letter-spacing:.1em;
+  color:#fff;display:block;
+  margin-bottom:6px;
+  transition:color .3s;
+}
+.contact-tel:hover{color:var(--c-gold2)}
+.contact-hours{
+  font-size:1.08rem;font-weight:400;
+  color:rgba(255,255,255,.85);
+  letter-spacing:.1em;margin-bottom:52px;
+}
+.contact-btns{
+  display:flex;justify-content:center;
+  flex-wrap:wrap;gap:14px;
+}
+
+/* ─────────────────────────────────────────────
+   ════════════════════
+   FOOTER
+   ════════════════════
+───────────────────────────────────────────── */
+footer{
+  background:#1e1a14;
+  padding:clamp(48px,7vw,80px) clamp(20px,5vw,64px) 36px;
+}
+.footer-inner{
+  max-width:1160px;margin:0 auto;
+  display:grid;
+  grid-template-columns:1.6fr 1fr 1fr;
+  gap:52px;
+  padding-bottom:48px;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  margin-bottom:28px;
+}
+.footer-brand-ja{
+  font-family:var(--f-serif);
+  font-size:1.05rem;color:#fff;margin-bottom:4px;
+}
+.footer-brand-en{
+  font-family:var(--f-latin);font-style:italic;
+  font-size:.62rem;letter-spacing:.18em;
+  color:var(--c-gold2);display:block;margin-bottom:18px;
+}
+.footer-desc{
+  font-size:.76rem;font-weight:200;
+  color:rgba(255,255,255,.26);line-height:2.1;
+}
+.footer-address{
+  margin-top:14px;
+  font-size:.68rem;font-weight:200;
+  color:rgba(255,255,255,.2);line-height:1.9;
+}
+.footer-col-head{
+  font-family:var(--f-latin);
+  font-size:.64rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--c-gold);
+  display:block;margin-bottom:20px;
+}
+.footer-links li{margin-bottom:12px}
+.footer-links a{
+  font-size:.77rem;font-weight:200;
+  color:rgba(255,255,255,.35);
+  transition:color .3s;letter-spacing:.04em;
+}
+.footer-links a:hover{color:var(--c-gold2)}
+.footer-bottom{
+  max-width:1160px;margin:0 auto;
+  display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:14px;
+}
+.footer-copy{
+  font-family:var(--f-latin);
+  font-size:.64rem;letter-spacing:.1em;
+  color:rgba(255,255,255,.16);
+}
+.footer-badges{display:flex;gap:8px;flex-wrap:wrap}
+.footer-badge{
+  font-size:.6rem;font-weight:300;
+  color:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.08);
+  padding:3px 10px;letter-spacing:.07em;
+}
+
+/* ─────────────────────────────────────────────
+   ════════════════════
+   MEDIA / VIDEO SECTION
+   ════════════════════
+───────────────────────────────────────────── */
+#media-section{background:#3d3830}
+
+.media-intro{
+  max-width:580px;
+  font-size:.86rem;font-weight:200;
+  color:rgba(255,255,255,.45);
+  line-height:2.2;
+  margin-top:20px;
+}
+
+.media-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:20px;
+  margin-top:clamp(36px,5vw,56px);
+  max-width:760px;
+}
+
+.media-card{
+  position:relative;
+  background:#1a1a1a;
+  overflow:hidden;
+}
+
+.media-card__video{
+  width:100%;
+  aspect-ratio:16/9;
+  display:block;
+  object-fit:cover;
+}
+
+.media-card__placeholder{
+  width:100%;
+  aspect-ratio:16/9;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:12px;
+  background:linear-gradient(135deg,#1a1a1a,#222);
+  color:rgba(255,255,255,.2);
+}
+
+.media-card__placeholder-icon{
+  font-size:2rem;opacity:.3;
+}
+
+.media-card__placeholder p{
+  font-size:.72rem;letter-spacing:.1em;
+}
+
+.media-card__label{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:14px 18px;
+  background:linear-gradient(to top, rgba(0,0,0,.7), transparent);
+  font-family:var(--f-serif);
+  font-size:.88rem;color:#fff;
+}
+
+.media-card__label span{
+  font-family:var(--f-latin);
+  font-style:italic;
+  font-size:.7rem;
+  color:var(--c-gold2);
+  margin-left:8px;
+}
+
+/* ─────────────────────────────────────────────
+   ════════════════════
+   HERO VIDEO
+   ════════════════════
+───────────────────────────────────────────── */
+.hero-video{
+  position:absolute;
+  right:0;top:0;bottom:0;
+  width:48%;
+  overflow:hidden;
+}
+.hero-video video{
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:.65;
+  mix-blend-mode:luminosity;
+}
+.hero-video::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(to right, #0a1f18 0%, transparent 40%);
+  z-index:1;
+}
+.hero-video-placeholder{
+  width:100%;height:100%;
+  background:linear-gradient(135deg,#1a2e22,#2a1810);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:10px;
+}
+.hero-video-placeholder p{
+  font-size:.7rem;
+  color:rgba(255,255,255,.18);
+  letter-spacing:.1em;
+}
+
+/* ─────────────────────────────────────────────
+   ════════════════════
+   PILATES PHOTO / VIDEO
+   ════════════════════
+───────────────────────────────────────────── */
+.pilates-media{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-bottom:28px;
+}
+
+.pilates-media-item{
+  position:relative;
+  aspect-ratio:4/3;
+  background:#1a2e22;
+  overflow:hidden;
+}
+
+.pilates-media-item video,
+.pilates-media-item img{
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:.7;
+}
+
+.pilates-media-placeholder{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:8px;
+  color:rgba(255,255,255,.25);
+  font-size:.7rem;letter-spacing:.08em;
+}
+
+.pilates-media-label{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:10px 14px;
+  background:linear-gradient(to top, rgba(0,0,0,.6), transparent);
+  font-size:.72rem;
+  color:rgba(255,255,255,.7);
+  letter-spacing:.08em;
+}
+
+/* ─────────────────────────────────────────────
+   ════════════════════
+   COURSE — SET (4th)
+   ════════════════════
+───────────────────────────────────────────── */
+.course--set .course__bar{background:linear-gradient(90deg,var(--c-forest2),var(--c-teal2))}
+.course--set .course__no{color:var(--c-teal);opacity:.3}
+.course--set .course__badge{background:rgba(58,107,82,.12);color:#3d7a68}
+.course--set .course__point::before{background:var(--c-teal)}
+.course--set .course__cta{border-color:rgba(58,107,82,.4);color:#3d7a68}
+.course--set .course__cta:hover{background:#3d7a68;border-color:#3d7a68;color:#fff}
+
+.course-order-note{
+  margin-top:14px;
+  padding:12px 16px;
+  background:rgba(90,138,122,.08);
+  border-left:2px solid rgba(90,138,122,.3);
+  font-size:.74rem;font-weight:200;
+  color:var(--c-ink3);line-height:1.8;
+}
+
+/* ─────────────────────────────────────────────
+   ════════════════════
+   FAQ
+   ════════════════════
+───────────────────────────────────────────── */
+.faq-list{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  max-width:820px;
+  margin:clamp(40px,6vw,64px) auto 0;
+}
+.faq-item{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  padding:clamp(22px,3.5vw,36px);
+  transition:background .3s;
+}
+.faq-item:hover{background:rgba(255,255,255,.07)}
+.faq-q{
+  font-family:var(--f-serif);
+  font-size:clamp(.9rem,1.3vw,1.05rem);
+  font-weight:400;
+  color:#fff;
+  margin-bottom:14px;
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+  line-height:1.8;
+}
+.faq-q::before{
+  content:'Q';
+  font-family:var(--f-latin);
+  font-size:1rem;
+  color:var(--c-gold2);
+  flex-shrink:0;
+  line-height:1.7;
+}
+.faq-a{
+  font-size:.84rem;
+  font-weight:200;
+  color:rgba(255,255,255,.68);
+  line-height:2.2;
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+  border-top:1px solid rgba(255,255,255,.06);
+  padding-top:14px;
+}
+.faq-a::before{
+  content:'A';
+  font-family:var(--f-latin);
+  font-size:1rem;
+  color:var(--c-teal2);
+  flex-shrink:0;
+  line-height:1.7;
+}
+
+/* ─────────────────────────────────────────────
+   キャンセルポリシー
+───────────────────────────────────────────── */
+.cancel-intro{
+  max-width:720px;
+  margin:0 auto clamp(36px,5vw,52px);
+  text-align:center;
+}
+.cancel-intro p{
+  font-size:.86rem;font-weight:200;
+  color:var(--c-ink3);
+  line-height:2.4;letter-spacing:.04em;
+}
+.cancel-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(16px,2.5vw,24px);
+  max-width:780px;
+  margin:0 auto;
+}
+.cancel-block{
+  background:#fff;
+  border:1px solid rgba(120,100,80,.12);
+  border-radius:8px;
+  overflow:hidden;
+  box-shadow:0 2px 18px rgba(40,28,18,.07);
+}
+.cancel-block-head{
+  background:linear-gradient(135deg,#2a4a3a,#1e3028);
+  padding:18px 26px;
+}
+.cancel-block-label{
+  font-family:var(--f-latin);
+  font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--c-gold2);
+  display:block;margin-bottom:5px;
+}
+.cancel-block-name{
+  font-family:var(--f-serif);
+  font-size:1rem;color:#fff;font-weight:400;letter-spacing:.06em;
+}
+.cancel-block-body{padding:0 26px 6px}
+.cancel-row{
+  display:flex;align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:14px 0;
+  border-bottom:1px solid rgba(120,100,80,.08);
+}
+.cancel-row:last-child{border-bottom:none}
+.cancel-timing{
+  font-family:var(--f-serif);
+  font-size:.86rem;color:var(--c-ink2);
+}
+.cancel-fee{
+  font-family:var(--f-serif);
+  font-size:.92rem;font-weight:400;
+  color:var(--c-gold);white-space:nowrap;
+}
+.cancel-note{
+  max-width:720px;
+  margin:clamp(28px,4vw,44px) auto 0;
+  text-align:center;
+  font-size:.8rem;font-weight:200;
+  color:var(--c-ink3);
+  line-height:2.2;letter-spacing:.04em;
+  padding-top:clamp(20px,3vw,32px);
+  border-top:1px solid rgba(120,100,80,.14);
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────── */
+@media(max-width:3000px){
+  .nav-menu{display:none}
+  .nav-burger{display:flex}
+
+@media(max-width:900px){
+  .nav-menu{display:none}
+  .nav-burger{display:flex}
+
+  #philosophy .inner{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:1fr}
+  .staff-grid{grid-template-columns:1fr}
+  .courses-grid{grid-template-columns:1fr}
+  .pilates-grid{grid-template-columns:1fr}
+  .pilates-media{grid-template-columns:1fr}
+  .access-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;gap:36px}
+  .media-grid{grid-template-columns:1fr}
+
+  .hero-photo{width:100%;opacity:.15}
+  .hero-photo::before{background:var(--c-forest)}
+  .hero-video{width:100%;opacity:.15}
+  .hero-video::before{background:var(--c-forest)}
+}
+@media(max-width:620px){
+  .svc-grid{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column}
+  .contact-btns{flex-direction:column;align-items:center}
+  #announce{height:auto;padding:14px clamp(20px,4vw,56px);flex-direction:column;text-align:center;gap:8px}
+  #closure{flex-direction:column;gap:12px}
+  .footer-bottom{flex-direction:column;align-items:flex-start}
+  .courses-consult{flex-direction:column;align-items:flex-start}
+  .pricing-top-grid{grid-template-columns:1fr}
+  .cancel-grid{grid-template-columns:1fr}
+  .pilates-section-head{
+    flex-direction:column;      /* 横並び→縦積みに変更 */
+  }
+  .pilates-head-logo{
+    order:-1;                   /* 写真ブロックを先頭に */
+    width:100%;                 /* 横幅いっぱいに */
+    margin-bottom:24px;         /* 下の文言との余白 */
+  }
+  .pilates-price-grid{grid-template-columns:1fr !important}
+  .courses-price-grid{grid-template-columns:1fr !important}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+  NAV
+═══════════════════════════════════════════ -->
+<nav id="site-nav">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo__ja">はぎわら治療院</span>
+    <span class="nav-logo__en">Hagiwara Clinic — Yokohama Aoba-ku</span>
+  </a>
+  <ul class="nav-menu">
+    <li><a href="#philosophy">理念</a></li>
+    <li><a href="#media-section">動画</a></li>
+    <li><a href="#services">施術</a></li>
+    <li><a href="#pricing">料金表</a></li>
+    <li><a href="#staff">スタッフ</a></li>
+    <li><a href="#pilates">ピラティス</a></li>
+    <li><a href="#courses">ピラティスコース・料金表</a></li>
+    <li><a href="#campaign">キャンペーン</a></li>
+    <li><a href="#faq">よくある質問</a></li>
+    <li><a href="#cancel">キャンセルポリシー</a></li>
+    <li><a href="#access">アクセス・診療時間</a></li>
+    <li><a href="#contact" class="nav-book">ご予約</a></li>
+  </ul>
+  <button class="nav-burger" onclick="openDrawer()" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div id="nav-drawer" role="dialog" aria-modal="true">
+  <button class="drawer-close" onclick="closeDrawer()" aria-label="閉じる">✕</button>
+  <a href="#philosophy"    onclick="closeDrawer()">理念</a>
+  <a href="#media-section" onclick="closeDrawer()">動画</a>
+  <a href="#services"      onclick="closeDrawer()">施術</a>
+  <a href="#pricing"    onclick="closeDrawer()">料金表</a>
+  <a href="#staff"      onclick="closeDrawer()">スタッフ</a>
+  <a href="#pilates"    onclick="closeDrawer()">ピラティス</a>
+  <a href="#courses"    onclick="closeDrawer()">ピラティスコース・料金表</a>
+  <a href="#campaign"   onclick="closeDrawer()">キャンペーン</a>
+  <a href="#faq"        onclick="closeDrawer()">よくある質問</a>
+  <a href="#cancel"     onclick="closeDrawer()">キャンセルポリシー</a>
+  <a href="#access"     onclick="closeDrawer()">アクセス・診療時間</a>
+  <a href="#contact"    onclick="closeDrawer()">ご予約</a>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+  HERO
+═══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-canvas"></div>
+
+  <!-- 指圧動画（右側背景） -->
+  <div class="hero-video">
+    <video autoplay muted loop playsinline>
+      <source src="videos/shiatsu.mp4" type="video/mp4">
+    </video>
+    <div class="hero-logo">
+      <img src="images/logo-header.png" alt="はぎわら治療院">
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <div class="wrap">
+      <p class="hero-pre">Hagiwara Clinic — Yokohama, Aoba-ku</p>
+      <h1 class="hero-h1">
+        職人の手が、<br>
+        からだの<em>本質</em>へ<br>
+        届く。
+      </h1>
+      <p class="hero-en">Where craft meets healing — body and mind in balance.</p>
+      <p class="hero-body">
+        指圧・鍼灸・マッサージ・ピラティス。<br>
+        それぞれの深みを追求する二人の施術者が、<br>
+        あなたの回復を、丁寧に支えます。
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-fill">ご予約・お問い合わせ</a>
+        <a href="#services" class="btn btn-ghost-w">施術を見る</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="hero-scroll-bar"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+  CLOSURE NOTICE
+═══════════════════════════════════════════ -->
+<div id="closure">
+  <span class="closure-badge">臨時休業</span>
+  <div class="closure-body">
+    <p class="closure-title">臨時休業のご案内</p>
+    <p class="closure-text">下記の日程において、休業とさせていただきます。ご不便をおかけしますが、何卒ご了承くださいませ。</p>
+    <p class="closure-dates">7/9（木）　7/20（祝・月）　7/21（火）　7/30（木）</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+  ANNOUNCEMENT
+═══════════════════════════════════════════ -->
+<div id="announce">
+  <span class="announce-badge">Coming Soon</span>
+  <p class="announce-text">
+    <strong>2026年6月 開院</strong>&ensp;ASAKAメディカルピラティス（3F / 301号室）— ビンセプト同一ビル内、治療院との完全連携
+  </p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+  PHILOSOPHY
+═══════════════════════════════════════════ -->
+<section id="philosophy" class="section section--cream">
+  <div class="wrap">
+    <div class="inner">
+
+      <div class="phil-text" data-reveal>
+        <span class="label">Philosophy</span>
+        <h2 class="phil-heading">
+          治す力を、信じることから。<br>
+          <small style="font-size:.55em;color:var(--c-ink3);font-family:var(--f-latin);font-style:italic;letter-spacing:.08em;font-weight:300">Trusting the body's innate power to heal.</small>
+        </h2>
+        <p class="phil-body">
+          院長・萩原仁は、20年以上にわたり指圧を愛し続け、その技術を今も磨き続けている職人です。同時に鍼灸にも真摯に向き合い、繊細な鍼の技術と指圧を組み合わせることで、自分だけの治療法をつくり上げています。体だけでなく、その方の心にも寄り添う姿勢が、多くの患者様からの厚い信頼につながっています。<br><br>
+          副院長・萩原朝香もまた、20年以上にわたる指圧師としての経験を持ち、鍼の繊細な反応を読み取りながら、患者様一人ひとりと丁寧に向き合ってきました。さらにメディカルピラティスの資格を活かし、運動面からのアドバイスやケアも行うことで、治療とフィジカルの両方から体づくりをサポートしています。<br><br>
+          「いつまでも自分の足で歩く」——そのために、二人がそれぞれの専門性を持ち寄り、確かな技術でお応えします。
+        </p>
+      </div>
+
+      <div class="pillars" data-reveal data-delay="2">
+        <div class="pillar">
+          <span class="pillar-n">01</span>
+          <div>
+            <p class="pillar-title">職人の指圧</p>
+            <p class="pillar-desc">内臓反射を起こし、内科的な回復へ。<br>気持ちよく、深く治す技術を磨き続ける。</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <span class="pillar-n">02</span>
+          <div>
+            <p class="pillar-title">繊細な鍼灸</p>
+            <p class="pillar-desc">痛みを最小限に。気血の流れを整え、<br>心身の本質から回復させる鍼の力。</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <span class="pillar-n">03</span>
+          <div>
+            <p class="pillar-title">メディカルピラティス</p>
+            <p class="pillar-desc">治療の効果を「動き」へ。医療知識と<br>国家資格が支える、信頼のピラティス。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+  MEDIA / VIDEO SECTION
+═══════════════════════════════════════════ -->
+<section id="media-section" class="section">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="label">施術動画</span>
+      <h2 class="title-serif" style="font-size:clamp(1.4rem,2.8vw,2.2rem);color:#fff">
+        指圧・鍼の施術をご覧ください
+      </h2>
+      <span class="line" style="margin-top:22px"></span>
+      <p class="media-intro">
+        職人の手技を、動画でご確認いただけます。
+        初めての方もどうぞ安心してご来院ください。
+      </p>
+    </div>
+
+    <div class="media-grid">
+
+      <!-- 指圧ラベル（鍼動画ファイル） -->
+      <div class="media-card" data-reveal>
+        <video class="media-card__video" autoplay muted loop playsinline>
+          <source src="videos/acupuncture.mp4" type="video/mp4">
+        </video>
+        <div class="media-card__label">
+          指圧
+          <span>Shiatsu Therapy</span>
+        </div>
+      </div>
+
+      <!-- 鍼灸ラベル（指圧動画ファイル） -->
+      <div class="media-card" data-reveal data-delay="2">
+        <video class="media-card__video" autoplay muted loop playsinline>
+          <source src="videos/shiatsu.mp4" type="video/mp4">
+        </video>
+        <div class="media-card__label">
+          鍼灸
+          <span>Acupuncture</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- SNS Strip -->
+<div class="sns-strip">
+  <div class="wrap">
+    <div class="sns-strip-inner" data-reveal>
+      <span class="sns-strip-label">Follow &amp; Contact</span>
+      <div class="phil-sns-links">
+        <div class="phil-sns-line-wrap">
+          <a href="https://lin.ee/WxOBVcp" target="_blank" rel="noopener" class="phil-sns-btn phil-sns-btn--line">
+            <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.63 0 .344-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.628-.63.628H16.98a.627.627 0 0 1-.627-.628V8.108c0-.345.282-.63.63-.63h2.382c.349 0 .63.285.63.63 0 .344-.281.628-.63.628H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031a.63.63 0 0 1-.568-.347l-2.243-3.076v2.794c0 .346-.282.63-.63.63a.627.627 0 0 1-.629-.63V8.108c0-.27.173-.51.43-.595a.621.621 0 0 1 .197-.033.626.626 0 0 1 .568.344l2.243 3.076V8.108c0-.345.282-.63.63-.63.346 0 .63.285.63.63v4.771zm-5.741 0c0 .346-.282.63-.63.63a.627.627 0 0 1-.629-.63V8.108c0-.345.282-.63.63-.63.346 0 .63.285.63.63v4.771zm-2.466.629H5.026a.627.627 0 0 1-.629-.628V8.108c0-.345.282-.63.63-.63.346 0 .63.285.63.63v4.141h1.872c.346 0 .627.283.627.628 0 .346-.281.631-.627.631zM24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314z"/></svg>
+            LINEで予約・お問い合わせ
+          </a>
+          <img class="phil-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://lin.ee/WxOBVcp" alt="LINE QR" loading="lazy">
+        </div>
+        <a href="https://twitter.com/hagiwara2015" target="_blank" rel="noopener" class="phil-sns-btn phil-sns-btn--x">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L2.25 2.25h6.952l4.255 5.623L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+          X（旧Twitter）
+        </a>
+        <a href="https://www.instagram.com/hagiwarachiryoin2015/" target="_blank" rel="noopener" class="phil-sns-btn phil-sns-btn--ig">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+  SERVICES
+═══════════════════════════════════════════ -->
+<section id="services" class="section">
+  <div class="wrap">
+    <div class="section-head center" data-reveal>
+      <span class="label">Our Services</span>
+      <h2 class="title-serif" style="font-size:clamp(1.55rem,3vw,2.4rem);color:#fff">
+        施術のご案内
+      </h2>
+      <span class="line line--c" style="margin-top:22px"></span>
+    </div>
+
+    <div class="svc-grid">
+
+      <div class="svc-card" data-reveal>
+        <span class="svc-no">01 — Shiatsu</span>
+        <span class="svc-icon">✦</span>
+        <h3 class="svc-name">指圧</h3>
+        <span class="svc-name-en">Shiatsu Therapy</span>
+        <p class="svc-desc">
+          院長・萩原仁が職人として探求し続ける指圧。
+          心地よい圧が内臓反射を促し、
+          筋骨格系だけでなく内科的な回復にも
+          はたらきかけます。「気持ちよく治る」
+          という唯一無二の体験を。
+        </p>
+        <span class="svc-tag">院長 専門施術</span>
+      </div>
+
+      <div class="svc-card" data-reveal>
+        <span class="svc-no">02 — Acupuncture</span>
+        <span class="svc-icon">◈</span>
+        <h3 class="svc-name">鍼灸</h3>
+        <span class="svc-name-en">Acupuncture &amp; Moxibustion</span>
+        <p class="svc-desc">
+          痛みの改善に徹底的にこだわった鍼治療。
+          気血の流れを整え機能を向上させ、
+          心身ともに深く回復させる力——
+          経験を重ねるほど確信へと変わります。
+        </p>
+        <span class="svc-tag">院長・副院長 対応</span>
+      </div>
+
+      <div class="svc-card" data-reveal>
+        <span class="svc-no">03 — Massage</span>
+        <span class="svc-icon">◇</span>
+        <h3 class="svc-name">マッサージ</h3>
+        <span class="svc-name-en">Therapeutic Massage</span>
+        <p class="svc-desc">
+          あん摩マッサージ指圧師の国家資格を持つ
+          施術者による本格的なマッサージ。
+          筋肉の緊張をほぐし血流を改善、
+          指圧・鍼灸と組み合わせてより深い効果へ。
+        </p>
+        <span class="svc-tag">国家資格 保有者</span>
+      </div>
+
+      <div class="svc-card" data-reveal>
+        <span class="svc-no">04 — Pilates</span>
+        <span class="svc-icon">◎</span>
+        <h3 class="svc-name">メディカルピラティス</h3>
+        <span class="svc-name-en">Medical Pilates</span>
+        <p class="svc-desc">
+          副院長・萩原朝香が指導するピラティス。
+          医療知識と国家資格に裏付けられた施術で、
+          治療とシームレスにつながります。
+          楽しく気持ちよく、動ける体を育てます。
+        </p>
+        <span class="svc-tag">副院長 指導 / 6月〜3F</span>
+      </div>
+
+      <div class="svc-card" data-reveal>
+        <span class="svc-no">05 — Program</span>
+        <span class="svc-icon">✧</span>
+        <h3 class="svc-name">オーダーメイドプラン</h3>
+        <span class="svc-name-en">Integrated Care Program</span>
+        <p class="svc-desc">
+          指圧・鍼灸・マッサージ・ピラティスを
+          体の状態に合わせて組み合わせた
+          完全オーダーメイドのプログラム。
+          初回カウンセリングで最適なプランを。
+        </p>
+        <span class="svc-tag">初回カウンセリング 無料</span>
+      </div>
+
+      <div class="svc-card svc-coming" data-reveal>
+        <span class="svc-no" style="color:var(--c-gold2)">Coming — June 2026</span>
+        <span class="svc-icon" style="opacity:.7">★</span>
+        <h3 class="svc-name">ASAKAメディカルピラティス</h3>
+        <span class="svc-name-en">ASAKA Medical Pilates Studio — 3F</span>
+        <p class="svc-desc">
+          2026年6月、3Fにメディカルピラティス
+          専用スタジオがオープン。2Fの治療院から
+          直接つながる導線で、治療の次の一歩を
+          自然な流れで踏み出せます。
+        </p>
+        <span class="svc-tag" style="color:var(--c-gold2);border-color:rgba(192,152,80,.3)">2026年6月 開院予定</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+  PRICING
+═══════════════════════════════════════════ -->
+<section id="pricing" class="section section--brown-soft">
+  <div class="wrap">
+    <div class="section-head center" data-reveal>
+      <span class="label">Price</span>
+      <h2 class="title-serif" style="font-size:clamp(1.55rem,3vw,2.4rem)">料金表</h2>
+      <span class="line line--c" style="margin-top:22px"></span>
+      <p style="font-size:.84rem;font-weight:300;color:var(--c-ink3);margin-top:16px">すべての施術は院長・副院長（国家資格保有者）が担当します。表示価格はすべて税込です。</p>
+    </div>
+
+    <!-- ご新規初回コース + 通常コース -->
+    <div class="pricing-top-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.5vw,22px);margin-bottom:clamp(16px,3vw,24px)" data-reveal>
+    <div data-reveal style="background:linear-gradient(135deg,#1e3028,#2a3820);border-radius:8px;overflow:hidden;margin-bottom:0;display:flex;flex-direction:column">
+      <div style="padding:16px 26px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+        <div>
+          <p style="font-family:var(--f-latin);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--c-gold2);margin-bottom:3px">First Visit Special</p>
+          <p style="font-family:var(--f-serif);font-size:.95rem;color:#fff">ご新規初回コース</p>
+        </div>
+        <p style="font-size:.7rem;font-weight:300;color:rgba(255,255,255,.4)">初回1回限り</p>
+      </div>
+      <div style="padding:0 26px 8px;flex:1">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07);gap:10px">
+          <div>
+            <span style="font-family:var(--f-serif);font-size:.86rem;color:rgba(255,255,255,.75)">鍼灸指圧　60分</span>
+            <p style="font-size:.72rem;font-weight:200;color:rgba(255,255,255,.5);margin-top:3px;line-height:1.7">全身まんべんなく整えたい方に。</p>
+          </div>
+          <span style="font-family:var(--f-latin);font-size:1.5rem;font-weight:300;color:var(--c-gold2);flex-shrink:0">6,950<small style="font-family:var(--f-sans);font-size:.6rem;color:rgba(255,255,255,.3);margin-left:2px">円</small></span>
+        </div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07);gap:10px">
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+              <span style="font-family:var(--f-serif);font-size:.86rem;color:rgba(255,255,255,.75)">鍼灸指圧　90分</span>
+              <span style="font-size:.58rem;color:var(--c-gold3);border:1px solid rgba(220,192,122,.45);padding:2px 8px;white-space:nowrap;letter-spacing:.04em">人気 No.1</span>
+            </div>
+            <p style="font-size:.72rem;font-weight:200;color:rgba(255,255,255,.5);margin-top:3px;line-height:1.7">症状改善と全身しっかり整えたい方に一番お勧めです！ぜひこの機会にご体験ください。</p>
+          </div>
+          <span style="font-family:var(--f-latin);font-size:1.5rem;font-weight:300;color:var(--c-gold2);white-space:nowrap;flex-shrink:0">9,950<small style="font-family:var(--f-sans);font-size:.6rem;color:rgba(255,255,255,.3);margin-left:2px">円</small></span>
+        </div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07);gap:10px">
+          <div>
+            <span style="font-family:var(--f-serif);font-size:.86rem;color:rgba(255,255,255,.75)">自律神経調整　75分</span>
+            <p style="font-size:.72rem;font-weight:200;color:rgba(255,255,255,.5);margin-top:3px;line-height:1.7">なんとなく調子が悪い、全身の機能を回復させたい方に。症状改善と全身しっかり整えたい方に一番お勧めです！</p>
+          </div>
+          <span style="font-family:var(--f-latin);font-size:1.5rem;font-weight:300;color:var(--c-gold2);flex-shrink:0">8,650<small style="font-family:var(--f-sans);font-size:.6rem;color:rgba(255,255,255,.3);margin-left:2px">円</small></span>
+        </div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07);gap:10px">
+          <div>
+            <span style="font-family:var(--f-serif);font-size:.86rem;color:rgba(255,255,255,.75)">60分 ＋ 眼精疲労</span>
+            <p style="font-size:.72rem;font-weight:200;color:rgba(255,255,255,.5);margin-top:3px;line-height:1.7">眼の疲れに加え眼の奥の重さや痛み、頭の重さのある方へ</p>
+          </div>
+          <span style="font-family:var(--f-latin);font-size:1.5rem;font-weight:300;color:var(--c-gold2);flex-shrink:0">9,700<small style="font-family:var(--f-sans);font-size:.6rem;color:rgba(255,255,255,.3);margin-left:2px">円</small></span>
+        </div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:12px 0;gap:10px">
+          <div>
+            <span style="font-family:var(--f-serif);font-size:.86rem;color:rgba(255,255,255,.75)">30分 ＋ 美容鍼灸</span>
+            <p style="font-size:.72rem;font-weight:200;color:rgba(255,255,255,.5);margin-top:3px;line-height:1.7">美容のベース、顔の土台となる頚や肩をほぐし、顔頭の血流改善とともに、顔と頭へアプローチ。小顔効果、脳もすっきり</p>
+          </div>
+          <span style="font-family:var(--f-latin);font-size:1.5rem;font-weight:300;color:var(--c-gold2);flex-shrink:0">9,950<small style="font-family:var(--f-sans);font-size:.6rem;color:rgba(255,255,255,.3);margin-left:2px">円</small></span>
+        </div>
+      </div>
+    </div>
+    <div data-reveal style="background:#fff;border:1px solid rgba(120,100,80,.12);border-radius:8px;overflow:hidden;box-shadow:0 2px 16px rgba(40,28,18,.07);display:flex;flex-direction:column">
+      <div style="padding:16px 26px;background:linear-gradient(135deg,#2a4a3a,#1e3028);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+        <div>
+          <p style="font-family:var(--f-latin);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--c-gold2);margin-bottom:3px">Standard Course</p>
+          <p style="font-family:var(--f-serif);font-size:.95rem;color:#fff">通常コース</p>
+        </div>
+        <p style="font-size:.72rem;font-weight:300;color:rgba(255,255,255,.45)">指圧 ／ 鍼灸 ／ マッサージ</p>
+      </div>
+      <div style="padding:0 26px 6px;flex:1">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:13px 0;border-bottom:1px solid rgba(120,100,80,.07);gap:10px">
+          <div>
+            <span style="font-family:var(--f-serif);font-size:.86rem;color:var(--c-ink2)">30分</span>
+            <p style="font-size:.72rem;font-weight:200;color:var(--c-ink3);margin-top:3px;line-height:1.7">一部位など集中的に改善したい方</p>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <span style="font-family:var(--f-latin);font-size:1.5rem;font-weight:300;color:var(--c-gold)">4,400<small style="font-family:var(--f-sans);font-size:.6rem;color:var(--c-ink3);margin-left:2px">円</small></span>
+            <p style="font-size:.7rem;color:var(--c-ink3);margin-top:2px">現金価格 4,300円</p>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:13px 0;border-bottom:1px solid rgba(120,100,80,.07);gap:10px">
+          <div>
+            <span style="font-family:var(--f-serif);font-size:.86rem;color:var(--c-ink2)">45分</span>
+            <p style="font-size:.72rem;font-weight:200;color:var(--c-ink3);margin-top:3px;line-height:1.7">ざっと全身整えたい方</p>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <span style="font-family:var(--f-latin);font-size:1.5rem;font-weight:300;color:var(--c-gold)">6,500<small style="font-family:var(--f-sans);font-size:.6rem;color:var(--c-ink3);margin-left:2px">円</small></span>
+            <p style="font-size:.7rem;color:var(--c-ink3);margin-top:2px">現金価格 6,300円</p>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:13px 0;border-bottom:1px solid rgba(120,100,80,.07);gap:10px">
+          <div>
+            <span style="font-family:var(--f-serif);font-size:.86rem;color:var(--c-ink2)">60分</span>
+            <p style="font-size:.72rem;font-weight:200;color:var(--c-ink3);margin-top:3px;line-height:1.7">リラックスしながら全身まんべんなく整えたい方に</p>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <span style="font-family:var(--f-latin);font-size:1.5rem;font-weight:300;color:var(--c-gold)">8,400<small style="font-family:var(--f-sans);font-size:.6rem;color:var(--c-ink3);margin-left:2px">円</small></span>
+            <p style="font-size:.7rem;color:var(--c-ink3);margin-top:2px">現金価格 8,150円</p>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:13px 0;border-bottom:1px solid rgba(120,100,80,.07);gap:10px">
+          <div>
+            <span style="font-family:var(--f-serif);font-size:.86rem;color:var(--c-ink2)">75分</span>
+            <p style="font-size:.72rem;font-weight:200;color:var(--c-ink3);margin-top:3px;line-height:1.7">全身に加え症状改善を希望する方にお勧めです</p>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <span style="font-family:var(--f-latin);font-size:1.5rem;font-weight:300;color:var(--c-gold)">10,450<small style="font-family:var(--f-sans);font-size:.6rem;color:var(--c-ink3);margin-left:2px">円</small></span>
+            <p style="font-size:.7rem;color:var(--c-ink3);margin-top:2px">現金価格 10,100円</p>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:13px 0;border-bottom:1px solid rgba(120,100,80,.07);gap:10px">
+          <div>
+            <span style="font-family:var(--f-serif);font-size:.86rem;color:var(--c-ink2)">90分</span>
+            <p style="font-size:.72rem;font-weight:200;color:var(--c-ink3);margin-top:3px;line-height:1.7">症状改善と全身しっかり整えたい方に一番お勧めです！</p>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <span style="font-family:var(--f-latin);font-size:1.5rem;font-weight:300;color:var(--c-gold)">12,400<small style="font-family:var(--f-sans);font-size:.6rem;color:var(--c-ink3);margin-left:2px">円</small></span>
+            <p style="font-size:.7rem;color:var(--c-ink3);margin-top:2px">現金価格 12,050円</p>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:13px 0;border-bottom:1px solid rgba(120,100,80,.07);gap:10px">
+          <div>
+            <span style="font-family:var(--f-serif);font-size:.86rem;color:var(--c-ink2)">120分</span>
+            <p style="font-size:.72rem;font-weight:200;color:var(--c-ink3);margin-top:3px;line-height:1.7">眼精疲労や頭の疲れ、体全体と足裏までの疲労回復に。リラクゼーション効果大！</p>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <span style="font-family:var(--f-latin);font-size:1.5rem;font-weight:300;color:var(--c-gold)">16,400<small style="font-family:var(--f-sans);font-size:.6rem;color:var(--c-ink3);margin-left:2px">円</small></span>
+            <p style="font-size:.7rem;color:var(--c-ink3);margin-top:2px">現金価格 16,000円</p>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:13px 0;gap:10px">
+          <div>
+            <span style="font-family:var(--f-serif);font-size:.86rem;color:var(--c-ink2)">延長 15分</span>
+            <p style="font-size:.72rem;font-weight:200;color:var(--c-ink3);margin-top:3px;line-height:1.7">もの足りない、もっとリラックスしたい方、お気軽にお声かけください</p>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <span style="font-family:var(--f-latin);font-size:1.5rem;font-weight:300;color:var(--c-gold)">2,200<small style="font-family:var(--f-sans);font-size:.6rem;color:var(--c-ink3);margin-left:2px">円</small></span>
+            <p style="font-size:.7rem;color:var(--c-ink3);margin-top:2px">現金価格 2,150円</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- 美容鍼灸 + オプション -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.5vw,22px)" data-reveal>
+
+      <!-- 美容鍼灸 -->
+      <div style="background:#fff;border:1px solid rgba(120,100,80,.12);border-radius:8px;overflow:hidden;box-shadow:0 2px 16px rgba(40,28,18,.07)">
+        <div style="padding:16px 22px;background:linear-gradient(135deg,#3a2838,#281828)">
+          <p style="font-family:var(--f-latin);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--c-gold2);margin-bottom:3px">Beauty Acupuncture</p>
+          <p style="font-family:var(--f-serif);font-size:.95rem;color:#fff">美容鍼灸</p>
+        </div>
+        <div style="padding:0 22px 14px">
+          <div style="padding:13px 0;border-bottom:1px solid rgba(120,100,80,.07)">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">
+              <div style="display:flex;align-items:center;gap:8px">
+                <span style="font-family:var(--f-serif);font-size:.86rem;color:var(--c-ink2)">美容鍼灸　40分</span>
+                <span style="font-size:.58rem;color:var(--c-gold3);border:1px solid rgba(220,192,122,.45);padding:2px 8px;white-space:nowrap;letter-spacing:.04em">リピート率 No.1</span>
+              </div>
+              <div style="text-align:right">
+                <span style="font-family:var(--f-latin);font-size:1.5rem;font-weight:300;color:var(--c-gold)">8,200<small style="font-family:var(--f-sans);font-size:.6rem;color:var(--c-ink3);margin-left:2px">円</small></span>
+                <p style="font-size:.7rem;color:var(--c-ink3);margin-top:2px">現金価格 7,950円</p>
+              </div>
+            </div>
+            <p style="font-size:.72rem;font-weight:200;color:var(--c-ink3);line-height:1.7;margin-bottom:4px">繊細な鍼で細かく刺鍼。表情筋を緩め、顔の歪みが整います。小顔効果、コラーゲン生成効果。</p>
+            <p style="font-size:.7rem;font-weight:300;color:var(--c-ink3);line-height:1.8">鍼 約50本使用・症状次第で電気通電込み</p>
+          </div>
+          <div style="padding:13px 0">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">
+              <span style="font-family:var(--f-serif);font-size:.86rem;color:var(--c-ink2)">顔鍼　30分</span>
+              <div style="text-align:right">
+                <span style="font-family:var(--f-latin);font-size:1.5rem;font-weight:300;color:var(--c-gold)">5,450<small style="font-family:var(--f-sans);font-size:.6rem;color:var(--c-ink3);margin-left:2px">円</small></span>
+                <p style="font-size:.7rem;color:var(--c-ink3);margin-top:2px">現金価格 5,300円</p>
+              </div>
+            </div>
+            <p style="font-size:.72rem;font-weight:200;color:var(--c-ink3);line-height:1.7;margin-bottom:4px">顔のコリを取り除きます。くいしばりなどの力みも改善。意外ですが、全身的に効果があります。</p>
+            <p style="font-size:.7rem;font-weight:300;color:var(--c-ink3);line-height:1.8">鍼 約40本使用</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- オプション -->
+      <div style="background:#fff;border:1px solid rgba(120,100,80,.12);border-radius:8px;overflow:hidden;box-shadow:0 2px 16px rgba(40,28,18,.07)">
+        <div style="padding:16px 22px;background:linear-gradient(135deg,#3a3020,#2a2018)">
+          <p style="font-family:var(--f-latin);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--c-gold2);margin-bottom:3px">Option</p>
+          <p style="font-family:var(--f-serif);font-size:.95rem;color:#fff">オプション</p>
+        </div>
+        <div style="padding:0 22px 14px">
+          <div style="padding:13px 0;border-bottom:1px solid rgba(120,100,80,.07)">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px">
+              <div>
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+                  <p style="font-family:var(--f-serif);font-size:.86rem;color:var(--c-ink2)">眼精疲労コース　20分</p>
+                  <span style="font-size:.58rem;color:var(--c-gold);background:rgba(160,120,64,.1);border:1px solid rgba(160,120,64,.2);border-radius:2px;padding:2px 9px;white-space:nowrap;letter-spacing:.06em">大人気！</span>
+                </div>
+                <p style="font-size:.72rem;font-weight:200;color:var(--c-ink3);line-height:1.7;margin-top:3px">リラックス効果抜群！眼も頭もスッキリします。</p>
+                <p style="font-size:.7rem;font-weight:300;color:var(--c-ink3);line-height:1.8;margin-top:2px">オプションのみでのご利用</p>
+              </div>
+              <div style="text-align:right">
+                <span style="font-family:var(--f-latin);font-size:1.5rem;font-weight:300;color:var(--c-gold);white-space:nowrap">3,450<small style="font-family:var(--f-sans);font-size:.6rem;color:var(--c-ink3);margin-left:2px">円</small></span>
+                <p style="font-size:.7rem;color:var(--c-ink3);margin-top:2px">現金価格 3,350円</p>
+              </div>
+            </div>
+          </div>
+          <div style="padding:13px 0">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+              <div>
+                <p style="font-family:var(--f-serif);font-size:.86rem;color:var(--c-ink2);margin-bottom:4px">自律神経調整コース　30分</p>
+                <p style="font-size:.72rem;font-weight:200;color:var(--c-ink3);line-height:1.7;margin-top:3px">胸椎や胸背中をほぐし、深い呼吸と質の良い睡眠へ導きます。免疫力向上も期待できます。</p>
+              </div>
+              <div style="text-align:right">
+                <span style="font-family:var(--f-latin);font-size:1.5rem;font-weight:300;color:var(--c-gold);white-space:nowrap">4,850<small style="font-family:var(--f-sans);font-size:.6rem;color:var(--c-ink3);margin-left:2px">円</small></span>
+                <p style="font-size:.7rem;color:var(--c-ink3);margin-top:2px">現金価格 4,700円</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    </div>
+
+    <p style="font-size:.74rem;color:var(--c-ink3);line-height:2;text-align:center;margin-top:clamp(18px,3vw,28px)" data-reveal>
+      すべての施術は院長（萩原 仁）または副院長（萩原 朝香）が担当 ／ 国家資格保有者 ／ 現金・PayPay等キャッシュレス対応
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+  STAFF
+═══════════════════════════════════════════ -->
+<section id="staff" class="section section--warm">
+  <div class="wrap">
+    <div class="section-head center" data-reveal>
+      <span class="label">Our Practitioners</span>
+      <h2 class="title-serif" style="font-size:clamp(1.55rem,3vw,2.4rem)">
+        施術者のご紹介
+      </h2>
+      <span class="line line--c" style="margin-top:22px"></span>
+    </div>
+
+    <div class="staff-grid">
+
+      <!-- 院長 -->
+      <div class="staff-card staff-card--director" data-reveal>
+        <div class="staff-photo">
+          <img class="staff-photo-img" src="images/hagiwara-jin.jpg" alt="萩原 仁">
+        </div>
+        <p class="staff-role">Director / 院長</p>
+        <h3 class="staff-name-ja">萩原 仁</h3>
+        <span class="staff-name-en">Jin Hagiwara</span>
+        <span class="line staff-line"></span>
+        <p class="staff-philo">
+          「指圧を職人として追い続けることに、<br>終わりはない。」
+        </p>
+        <p class="staff-bio">
+          指圧の道を20年以上歩み続けてきた萩原仁院長。
+          その原点は、指圧が持つ「治す力の高さ」と
+          「受ける気持ちよさ」への純粋な感動にあります。<br><br>
+          圧の積み重ねによって引き起こされる内臓反射は、
+          筋骨格系だけでなく内科的な回復にも深く関わる——
+          その力を職人として探求し続けることが、
+          施術の根幹にあります。<br><br>
+          鍼灸においても深いこだわりを持ち、
+          気血の流れを整え心身ともに回復させる
+          鍼の力を、長年の経験の中で確信し続けています。
+        </p>
+        <div class="staff-tags">
+          <span class="staff-tag">指圧</span>
+          <span class="staff-tag">鍼灸</span>
+          <span class="staff-tag">あん摩マッサージ</span>
+          <span class="staff-tag">国家資格保有</span>
+        </div>
+        <p style="font-size:.75rem;font-weight:300;color:var(--c-ink3);margin-top:16px;line-height:2.1;border-top:1px solid var(--c-bg3);padding-top:14px">
+          指圧 ／ 鍼灸 ／ あん摩マッサージ指圧<br>
+          <span style="font-size:.7rem;color:var(--c-gold);letter-spacing:.04em">国家資格保有 ／ 東京医療専門学校 卒業</span>
+        </p>
+      </div>
+
+      <!-- 副院長 -->
+      <div class="staff-card staff-card--vdirector" data-reveal data-delay="2">
+        <div class="staff-photo">
+          <img class="staff-photo-img" src="images/hagiwara-asaka.png" alt="萩原 朝香">
+        </div>
+        <p class="staff-role">Vice Director / 副院長</p>
+        <h3 class="staff-name-ja">萩原 朝香</h3>
+        <span class="staff-name-en">Asaka Hagiwara</span>
+        <span class="line staff-line"></span>
+        <p class="staff-philo">
+          「いつまでも自分の足で歩く。<br>その喜びを、守りたい。」
+        </p>
+        <p class="staff-bio">
+          医療知識と国家資格を持つ副院長・萩原朝香。
+          20年以上にわたる指圧師としての経験を持ちながら、
+          鍼のもつ、体の痛みを最小限に抑え、
+          機能向上と気血の流れを整えることの大きな力を、
+          日々の臨床の中で感じ続けています。<br><br>
+          治療とピラティスの橋渡しに特化した施術者として、
+          「治す・動く・整える」の循環を実現。
+          ピラティスを楽しく気持ちよく伝えながら、
+          「自分の足で歩き続ける人生」を支えています。<br><br>
+          2026年6月、3FにASAKAメディカルピラティスを開院。
+          治療院との導線を大切にした新しい空間を作りました。
+        </p>
+        <div class="staff-tags">
+          <span class="staff-tag">指圧</span>
+          <span class="staff-tag">鍼灸</span>
+          <span class="staff-tag">あん摩マッサージ</span>
+          <span class="staff-tag">メディカルピラティス</span>
+          <span class="staff-tag">国家資格保有</span>
+        </div>
+        <p style="font-size:.75rem;font-weight:300;color:var(--c-ink3);margin-top:16px;line-height:2.1;border-top:1px solid var(--c-bg3);padding-top:14px">
+          指圧 ／ 鍼灸 ／ あん摩マッサージ指圧 ／ メディカルピラティス<br>
+          <span style="font-size:.7rem;color:var(--c-gold);letter-spacing:.04em">国家資格保有 ／ 東京医療専門学校 卒業（特待生）</span>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+  PILATES STUDIO
+═══════════════════════════════════════════ -->
+<section id="pilates" class="section">
+  <div class="wrap">
+
+    <!-- ヘッダー -->
+    <div class="section-head pilates-section-head" data-reveal>
+      <div class="pilates-head-text">
+        <span class="label" style="color:rgba(192,152,80,.85);margin-bottom:16px;display:block">Medical Pilates</span>
+        <h2 class="pilates-title">メディカルピラティス</h2>
+        <p style="font-family:var(--f-serif);font-size:1.43rem;font-weight:300;color:var(--c-gold2);margin-top:10px;letter-spacing:.04em">施術で整えた体をピラティスでキープする</p>
+        <span class="line pilates-line"></span>
+
+        <!-- キャッチコピー -->
+        <p style="font-family:var(--f-serif);font-size:1.05rem;font-weight:400;color:rgba(255,255,255,.92);letter-spacing:.08em;line-height:2;margin-bottom:14px">
+          治療家が教えるピラティス。<br>
+          マシンとマットで、重力の中での体の使い方を学ぶ。<br>
+          施術で整えた体を、動ける体へ。
+        </p>
+        <p style="font-family:var(--f-serif);font-size:.88rem;font-weight:300;color:rgba(255,255,255,.78);letter-spacing:.06em;line-height:1.9;margin-bottom:14px;padding:10px 16px;border-left:2px solid var(--c-gold2)">
+          治療家歴20年以上。経験と知識のある治療家だからこそ、<br>
+          あなたの体の状態を見ながら安心・安全に指導できます。
+        </p>
+        <p style="font-family:var(--f-serif);font-size:.88rem;font-weight:300;color:rgba(255,255,255,.7);letter-spacing:.06em;line-height:1.9;margin-bottom:20px">
+          マシンとマット、両方のレッスンで「正しい動き」を体に定着させます。治療の効果を、日常のすべての動きへ。
+        </p>
+
+        <p class="pilates-lead">年齢を重ねても、気持ちよく動ける身体づくりを</p>
+        <p class="pilates-body">
+          はぎわら治療院では、治療と予防をつなぐ「メディカルピラティス」を導入しています。<br>
+          副院長・萩原朝香が担当し、医療従事者の視点から安全かつ効果的な運動指導を行います。<br>
+          慢性的な不調や加齢による筋力低下・姿勢のゆがみに対し、「正しく動かす」ことで<br>
+          本来の身体機能を取り戻すことを目的としています。
+        </p>
+      </div>
+      <div class="pilates-head-logo">
+        <img src="images/asaka-pilates-logo.png" alt="ASAKA Medical Pilates Studio">
+        <div class="pilates-head-photo">
+          <img src="images/asaka-pilates.png" alt="副院長 萩原朝香">
+        </div>
+        <p class="pilates-head-photo-name">副院長　萩原 朝香</p>
+      </div>
+    </div>
+
+    <!-- 2カラム: 概要 + メディア -->
+    <div class="pilates-grid" style="margin-bottom:clamp(40px,6vw,64px)">
+
+      <div data-reveal>
+        <!-- メディカルピラティスとは -->
+        <p style="font-family:var(--f-latin);font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(192,152,80,.7);margin-bottom:18px">What is Medical Pilates</p>
+        <div class="feat">
+          <div class="feat__icon">◈</div>
+          <div>
+            <p class="feat__title">医療知識をベースにした運動療法</p>
+            <p class="feat__body">筋肉・関節・呼吸の動きに注目しながら進めます。呼吸に合わせて筋肉を正しく使うことで、姿勢や動作のクセを改善します。</p>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat__icon">✦</div>
+          <div>
+            <p class="feat__title">インナーマッスルを鍛える</p>
+            <p class="feat__body">体の深部の筋肉（インナーマッスル）を意識的に動かし、安定した身体づくりをサポートします。</p>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat__icon">◎</div>
+          <div>
+            <p class="feat__title">年齢・運動経験を問わず安全に</p>
+            <p class="feat__body">運動が久しぶりの方、体に不安がある方でも無理なく取り組めるエクササイズです。</p>
+          </div>
+        </div>
+
+        <!-- こんな方に -->
+        <p style="font-family:var(--f-latin);font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(192,152,80,.7);margin:28px 0 14px">Recommended For</p>
+        <ul style="display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;padding:0;list-style:none">
+          <li class="course__point" style="border-top:none">疾患があって運動できないと思っている方</li>
+          <li class="course__point" style="border-top:none">膝・股関節・腰の疾患がある方</li>
+          <li class="course__point">日常動作がぎこちない・疲れやすい方</li>
+          <li class="course__point">姿勢の崩れ・猫背が気になる方</li>
+          <li class="course__point">いつまでも自分の足で歩き続けたい方</li>
+          <li class="course__point">体が硬くて運動に自信がない方</li>
+          <li class="course__point">運動習慣を身につけたい方</li>
+          <li class="course__point">自律神経が乱れている方</li>
+          <li class="course__point">慢性的な肩こりがある方</li>
+        </ul>
+      </div>
+
+      <div data-reveal data-delay="2">
+        <!-- 動画・写真 -->
+        <div class="pilates-media" style="grid-template-columns:1fr">
+          <div class="pilates-media-item">
+            <!-- <video autoplay muted loop playsinline><source src="videos/pilates.mp4" type="video/mp4"></video> -->
+            <div class="pilates-media-placeholder"><span>▶</span><span>ピラティス動画</span></div>
+            <div class="pilates-media-label">動画</div>
+          </div>
+        </div>
+
+        <div class="pilates-panel">
+          <p style="font-family:var(--f-latin);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(192,152,80,.65);margin-bottom:14px">Lesson Info</p>
+          <div class="feat">
+            <div class="feat__icon">✧</div>
+            <div>
+              <p class="feat__title">完全予約制・プライベートレッスン</p>
+              <p class="feat__body">完全個室・マンツーマン指導。50分で集中してお体と向き合います。</p>
+            </div>
+          </div>
+          <div class="feat">
+            <div class="feat__icon">◈</div>
+            <div>
+              <p class="feat__title">医療国家資格保有者が担当</p>
+              <p class="feat__body">身体の状態に合わせた安全な調整が可能です。</p>
+            </div>
+          </div>
+          <div class="feat">
+            <div class="feat__icon">◎</div>
+            <div>
+              <p class="feat__title">はじめての方へ</p>
+              <p class="feat__body">初回はまず60分施術コース（治療）をご利用いただき、お体の状態を確認してからご案内いたします。</p>
+            </div>
+          </div>
+          <div class="feat">
+            <div class="feat__icon">✦</div>
+            <div>
+              <p class="feat__title">月2回以上がおすすめ</p>
+              <p class="feat__body">レッスン中の動画撮影も可能。ご自宅での復習・練習で効果が定着します。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /pilates-grid -->
+
+    <!-- 料金 -->
+    <div data-reveal style="margin-bottom:clamp(40px,6vw,64px)">
+      <p style="font-family:var(--f-latin);font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--c-gold2);margin-bottom:20px">Pricing — 50min Private Lesson</p>
+     <div class="pilates-price-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2.5vw,20px)">
+
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:6px;padding:clamp(18px,3vw,28px)">
+          <p style="font-family:var(--f-latin);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--c-gold2);border:1px solid rgba(192,152,80,.5);display:inline-block;padding:3px 10px;margin-bottom:14px">Trial</p>
+          <p style="font-family:var(--f-serif);font-size:1.05rem;color:#fff;margin-bottom:4px">お試し価格</p>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.75);margin-bottom:14px">2回まで利用可能</p>
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-family:var(--f-latin);font-size:1.9rem;font-weight:300;color:var(--c-gold2)">6,700</span>
+            <span style="font-size:.72rem;color:rgba(255,255,255,.7)">円（税込）</span>
+          </div>
+        </div>
+
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:6px;padding:clamp(18px,3vw,28px)">
+          <p style="font-family:var(--f-latin);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--c-gold2);border:1px solid rgba(192,152,80,.5);display:inline-block;padding:3px 10px;margin-bottom:14px">6 Sessions</p>
+          <p style="font-family:var(--f-serif);font-size:1.05rem;color:#fff;margin-bottom:4px">6回券</p>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.75);margin-bottom:14px">有効期限 6ヶ月</p>
+          <p style="font-family:var(--f-latin);font-size:1.9rem;font-weight:300;color:var(--c-gold2)">43,800<span style="font-size:.72rem;font-family:var(--f-sans);color:rgba(255,255,255,.7);margin-left:2px">円（税込）</span></p>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.75);margin-top:6px">現金価格 42,400円</p>
+        </div>
+
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:6px;padding:clamp(18px,3vw,28px)">
+          <p style="font-family:var(--f-latin);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--c-gold2);border:1px solid rgba(192,152,80,.5);display:inline-block;padding:3px 10px;margin-bottom:14px">10 Sessions</p>
+          <p style="font-family:var(--f-serif);font-size:1.05rem;color:#fff;margin-bottom:4px">10回券</p>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.75);margin-bottom:14px">有効期限 1年</p>
+          <p style="font-family:var(--f-latin);font-size:1.9rem;font-weight:300;color:var(--c-gold2)">72,100<span style="font-size:.72rem;font-family:var(--f-sans);color:rgba(255,255,255,.7);margin-left:2px">円（税込）</span></p>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.75);margin-top:6px">現金価格 69,800円</p>
+        </div>
+
+      </div>
+      <p style="font-size:.82rem;color:rgba(255,255,255,.72);margin-top:14px;line-height:2">
+        ※ すべて50分・完全プライベートレッスン（税込）／ お試し2回以降は回数券をご購入ください。
+      </p>
+      <p style="font-size:.82rem;color:rgba(255,255,255,.85);margin-top:8px;padding:10px 16px;background:rgba(168,126,66,.15);border-left:2px solid var(--c-gold2);border-radius:0 4px 4px 0;line-height:2">
+        ※ 当院を初めてご利用の方へ &ensp;お体チェックのため、初回のみ60分の施術をお受けください。<span style="margin-left:6px;color:var(--c-gold2)">（60分　税込 6,950円）</span>
+      </p>
+    </div>
+
+    <!-- 患者さまの声 -->
+    <div data-reveal style="margin-bottom:clamp(40px,6vw,64px)">
+      <p style="font-family:var(--f-latin);font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(192,152,80,.7);margin-bottom:20px">Voices</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2.5vw,18px)">
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:clamp(16px,3vw,24px)">
+          <p style="font-family:var(--f-serif);font-size:.84rem;color:rgba(255,255,255,.7);line-height:2;margin-bottom:0">"レッスン後は、景色がキラキラして見えるような感覚でした"</p>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:clamp(16px,3vw,24px)">
+          <p style="font-family:var(--f-serif);font-size:.84rem;color:rgba(255,255,255,.7);line-height:2;margin-bottom:0">"とにかく睡眠の質がよくなりました"</p>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:clamp(16px,3vw,24px)">
+          <p style="font-family:var(--f-serif);font-size:.84rem;color:rgba(255,255,255,.7);line-height:2;margin-bottom:0">"日常の動きが少しずつスムーズになってきました"</p>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:clamp(16px,3vw,24px)">
+          <p style="font-family:var(--f-serif);font-size:.84rem;color:rgba(255,255,255,.7);line-height:2;margin-bottom:0">"足が痛くて運動できなかったけれど、転びそうになった時に体が踏ん張れた。ピラティスのおかげです"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 持ち物・キャンセル・プロフィール -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(14px,3vw,24px)" data-reveal>
+
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:clamp(18px,3vw,26px)">
+        <p style="font-family:var(--f-latin);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(192,152,80,.65);margin-bottom:14px">What to Bring</p>
+        <ul style="padding:0;list-style:none;display:flex;flex-direction:column;gap:8px">
+          <li class="course__point" style="border-top:none;font-size:.78rem">Tシャツ・トレーニングパンツなど動きやすい服装</li>
+          <li class="course__point" style="font-size:.78rem">靴下（履く場合は滑りにくいもの）</li>
+          <li class="course__point" style="font-size:.78rem">お水など飲み物</li>
+        </ul>
+      </div>
+
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:clamp(18px,3vw,26px)">
+        <p style="font-family:var(--f-latin);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(192,152,80,.65);margin-bottom:14px">Cancellation</p>
+        <ul style="padding:0;list-style:none;display:flex;flex-direction:column;gap:8px">
+          <li class="course__point" style="border-top:none;font-size:.78rem">同時間帯の治療予約は承りません</li>
+          <li class="course__point" style="font-size:.78rem">前日キャンセル：回数券1枚分消化</li>
+          <li class="course__point" style="font-size:.78rem">当日キャンセル：回数券2枚分消化</li>
+        </ul>
+      </div>
+
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:clamp(18px,3vw,26px)">
+        <p style="font-family:var(--f-latin);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(192,152,80,.65);margin-bottom:14px">Instructor</p>
+        <p style="font-family:var(--f-serif);font-size:.96rem;color:#fff;margin-bottom:4px">副院長　萩原 朝香</p>
+        <ul style="padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:10px">
+          <li class="course__point" style="border-top:none;font-size:.72rem">鍼灸師・あん摩マッサージ指圧師</li>
+          <li class="course__point" style="font-size:.72rem">BASIピラティス国際ライセンス<br>（メディカルプロフェッショナルプログラム修了）</li>
+          <li class="course__point" style="font-size:.72rem">BASIピラティス Mat指導者資格保有</li>
+          <li class="course__point" style="font-size:.72rem">息育指導士</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- LINE相談 -->
+    <div data-reveal style="margin-top:clamp(32px,5vw,48px);display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 28px;background:linear-gradient(135deg,rgba(6,199,85,.12),rgba(6,199,85,.05));border:1px solid rgba(6,199,85,.25);border-radius:6px;flex-wrap:wrap">
+      <div>
+        <p style="font-family:var(--f-serif);font-size:1rem;color:#fff;font-weight:300;line-height:2;margin-bottom:2px">
+          <strong style="color:var(--c-gold2)">副院長・萩原朝香</strong> への無料相談はLINEから。
+        </p>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.75);line-height:1.8">コース・体のお悩みなど、お気軽にご相談ください。</p>
+      </div>
+      <a href="https://lin.ee/WxOBVcp" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#06C755;color:#fff;font-size:.92rem;font-weight:400;padding:14px 26px;border-radius:4px;text-decoration:none;white-space:nowrap;transition:background .3s" onmouseover="this.style.background='#05b84d'" onmouseout="this.style.background='#06C755'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.63 0 .344-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.628-.63.628H16.98a.627.627 0 0 1-.627-.628V8.108c0-.345.282-.63.63-.63h2.382c.349 0 .63.285.63.63 0 .344-.281.628-.63.628H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031a.63.63 0 0 1-.568-.347l-2.243-3.076v2.794c0 .346-.282.63-.63.63a.627.627 0 0 1-.629-.63V8.108c0-.27.173-.51.43-.595a.621.621 0 0 1 .197-.033.626.626 0 0 1 .568.344l2.243 3.076V8.108c0-.345.282-.63.63-.63.346 0 .63.285.63.63v4.771zm-5.741 0c0 .346-.282.63-.63.63a.627.627 0 0 1-.629-.63V8.108c0-.345.282-.63.63-.63.346 0 .63.285.63.63v4.771zm-2.466.629H5.026a.627.627 0 0 1-.629-.628V8.108c0-.345.282-.63.63-.63.346 0 .63.285.63.63v4.141h1.872c.346 0 .627.283.627.628 0 .346-.281.631-.627.631zM24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314z"/></svg>
+        LINEで無料相談する
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ═══════════════════════════════════════════
+  COURSES
+═══════════════════════════════════════════ -->
+<section id="courses" class="section section--brown-soft">
+  <div class="wrap">
+    <div class="section-head center" data-reveal>
+      <span class="label">Choose Your Course</span>
+      <h2 class="title-serif" style="font-size:clamp(1.55rem,3vw,2.4rem)">
+        コースを選ぶ
+      </h2>
+      <span class="line line--c" style="margin-top:22px"></span>
+      <p class="courses-intro">
+        「ピラティスは私には無理かも…」そんな方こそ、まず気軽に。<br>
+        体の状態やご要望に合わせて、4つのコースからお選びいただけます。<br>
+        <span style="font-size:.78rem;color:var(--c-ink3)">はじめての方はお試し価格（2回まで）6,700円からご利用いただけます。</span>
+      </p>
+    </div>
+
+    <div class="courses-grid">
+
+      <!-- Course 01 -->
+      <div class="course course--ease" data-reveal>
+        <div class="course__bar"></div>
+        <div class="course__body">
+          <div class="course__no">01</div>
+          <span class="course__badge">はじめての方・どなたでも</span>
+          <h3 class="course__name">のびのびほぐしコース</h3>
+          <span class="course__en">Stretch &amp; Relax</span>
+          <div class="course__tools">
+            <span class="course__tool">ボール</span>
+            <span class="course__tool">ポール</span>
+            <span class="course__tool">バンド</span>
+          </div>
+          <p class="course__desc">
+            「ピラティスは無理」と思っている方でも安心して
+            受けられる入門コース。ボール・ポール・バンドなど
+            道具を使いながら、伸ばす・押す・緩ます——の
+            心地よい流れで体をほぐし、整えていきます。
+            ピラティスの要素をやさしく取り入れた、
+            敷居ゼロのリラックスプログラムです。
+          </p>
+          <ul class="course__points">
+            <li class="course__point">硬い体でも大丈夫、無理なく進めます</li>
+            <li class="course__point">道具の補助で動きやすく、気持ちいい</li>
+            <li class="course__point">体がほぐれる心地よさを体感できる</li>
+            <li class="course__point">ピラティスを「試してみたい」最初の一歩に</li>
+          </ul>
+          <p style="font-size:.68rem;font-weight:300;color:var(--c-gold);letter-spacing:.04em;margin-bottom:10px;display:flex;align-items:center;gap:5px">
+            <span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0"></span>
+            お得な10回回数券あり
+          </p>
+          <a href="#contact" class="course__cta">このコースで予約する</a>
+        </div>
+      </div>
+
+      <!-- Course 02 -->
+      <div class="course course--basic" data-reveal data-delay="2">
+        <div class="course__bar"></div>
+        <div class="course__body">
+          <div class="course__no">02</div>
+          <span class="course__badge">自分を整えたい方に</span>
+          <h3 class="course__name">基本ピラティスコース</h3>
+          <span class="course__en">Foundation Pilates</span>
+          <div class="course__tools">
+            <span class="course__tool">ピラティス基本</span>
+            <span class="course__tool">呼吸</span>
+            <span class="course__tool">自律神経</span>
+          </div>
+          <p class="course__desc">
+            ピラティスの基本を、気持ちよく・のびやかに。
+            呼吸・体幹・姿勢の意識を丁寧に育てながら、
+            自律神経を整え自分自身と向き合います。
+            「体のことをもっと知りたい」「毎日を
+            心地よく過ごしたい」方に最適なコースです。
+          </p>
+          <ul class="course__points">
+            <li class="course__point">ピラティスの基本的な動きを習得</li>
+            <li class="course__point">呼吸から整える、自律神経ケア</li>
+            <li class="course__point">のびやかに動ける体づくり</li>
+            <li class="course__point">心身ともに「整う」感覚を育てる</li>
+          </ul>
+          <p style="font-size:.68rem;font-weight:300;color:var(--c-gold);letter-spacing:.04em;margin-bottom:10px;display:flex;align-items:center;gap:5px">
+            <span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0"></span>
+            お得な10回回数券あり
+          </p>
+          <a href="#contact" class="course__cta">このコースで予約する</a>
+        </div>
+      </div>
+
+      <!-- Course 03 -->
+      <div class="course course--active" data-reveal data-delay="3">
+        <div class="course__bar"></div>
+        <div class="course__body">
+          <div class="course__no">03</div>
+          <span class="course__badge">機能改善・もっと動ける体へ</span>
+          <h3 class="course__name">機能改善ピラティスコース</h3>
+          <span class="course__en">Functional Pilates</span>
+          <div class="course__tools">
+            <span class="course__tool">基本＋応用</span>
+            <span class="course__tool">体幹強化</span>
+            <span class="course__tool">機能改善</span>
+          </div>
+          <p class="course__desc">
+            基本を土台に、少し頑張って体を変えていくコース。
+            より深い体幹強化・関節可動域の改善・日常動作の
+            質の向上を目指します。「治療でよくなってきた、
+            もっと動ける体に」「いつまでも自分の足で
+            歩き続けたい」方へ。
+          </p>
+          <ul class="course__points">
+            <li class="course__point">体幹・深層筋の機能的な強化</li>
+            <li class="course__point">関節の動きを広げ、可動域を改善</li>
+            <li class="course__point">治療院（2F）と連携した身体改善</li>
+            <li class="course__point">長く動ける体・老いにくい体をつくる</li>
+          </ul>
+          <p style="font-size:.68rem;font-weight:300;color:var(--c-gold);letter-spacing:.04em;margin-bottom:10px;display:flex;align-items:center;gap:5px">
+            <span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0"></span>
+            お得な10回回数券あり
+          </p>
+          <a href="#contact" class="course__cta">このコースで予約する</a>
+        </div>
+      </div>
+
+      <!-- Course 04 -->
+      <div class="course course--set" data-reveal data-delay="1">
+        <div class="course__bar"></div>
+        <div class="course__body">
+          <div class="course__no">04</div>
+          <span class="course__badge">治療＋ピラティスで相乗効果</span>
+          <h3 class="course__name">施術＋ピラティスコース</h3>
+          <span class="course__en">Treatment &amp; Pilates Set</span>
+          <div class="course__tools">
+            <span class="course__tool">指圧 or 鍼灸</span>
+            <span class="course__tool">ピラティス</span>
+            <span class="course__tool">順番自由</span>
+          </div>
+          <p class="course__desc">
+            施術とピラティスを同日に組み合わせた
+            トータルケアコース。治療で整えた体を
+            そのままピラティスで動かす、または
+            ピラティスで動いた後に施術で仕上げる——
+            その日の体の状態に合わせて順番を選べます。
+          </p>
+          <ul class="course__points">
+            <li class="course__point">施術→ピラティス、またはピラティス→施術、どちらでも対応</li>
+            <li class="course__point">その日の体調や目的に合わせて順番を相談できる</li>
+            <li class="course__point">治療の効果をピラティスで定着させる</li>
+            <li class="course__point">2Fと3Fのシームレスな連携（2026年6月〜）</li>
+          </ul>
+          <div class="course-order-note">
+            ✦ 施術とピラティスの順番はどちらでもOK。<br>
+            当日の体調や施術者とのご相談で柔軟に対応いたします。
+          </div>
+          <a href="#contact" class="course__cta" style="margin-top:14px">このコースで予約する</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 料金 -->
+    <div data-reveal style="background:rgba(107,74,40,.07);border:1px solid rgba(107,74,40,.15);border-radius:8px;padding:clamp(24px,4vw,40px);margin-bottom:clamp(24px,4vw,36px)">
+      <p style="font-family:var(--f-latin);font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--c-gold);margin-bottom:20px">Pricing — 50min Private Lesson</p>
+      <div class="courses-price-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,2vw,18px);margin-bottom:16px">
+
+        <div style="background:#fff;border:1px solid rgba(120,100,80,.1);border-radius:6px;padding:clamp(14px,2.5vw,22px);box-shadow:0 2px 12px rgba(40,28,18,.07)">
+          <p style="font-family:var(--f-latin);font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--c-gold);border:1px solid rgba(160,120,64,.3);display:inline-block;padding:2px 8px;margin-bottom:10px">Trial</p>
+          <p style="font-family:var(--f-serif);font-size:.88rem;color:var(--c-ink);margin-bottom:2px">お試し価格</p>
+          <p style="font-size:.68rem;color:var(--c-ink3);margin-bottom:10px">2回まで利用可能</p>
+          <div style="display:flex;align-items:baseline;gap:6px">
+            <span style="font-family:var(--f-latin);font-size:1.7rem;font-weight:300;color:var(--c-gold)">6,700</span>
+            <span style="font-size:.6rem;color:var(--c-ink3)">円（税込）</span>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:1px solid rgba(120,100,80,.1);border-radius:6px;padding:clamp(14px,2.5vw,22px);box-shadow:0 2px 12px rgba(40,28,18,.07)">
+          <p style="font-family:var(--f-latin);font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--c-gold);border:1px solid rgba(160,120,64,.3);display:inline-block;padding:2px 8px;margin-bottom:10px">6 Sessions</p>
+          <p style="font-family:var(--f-serif);font-size:.88rem;color:var(--c-ink);margin-bottom:2px">6回券</p>
+          <p style="font-size:.68rem;color:var(--c-ink3);margin-bottom:10px">有効期限6ヶ月</p>
+          <p style="font-family:var(--f-latin);font-size:1.7rem;font-weight:300;color:var(--c-gold)">43,800<span style="font-size:.6rem;font-family:var(--f-sans);color:var(--c-ink3);margin-left:2px">円（税込）</span></p>
+          <p style="font-size:.68rem;color:var(--c-ink3);margin-top:4px">現金価格 42,400円</p>
+        </div>
+
+        <div style="background:#fff;border:1px solid rgba(120,100,80,.1);border-radius:6px;padding:clamp(14px,2.5vw,22px);box-shadow:0 2px 12px rgba(40,28,18,.07)">
+          <p style="font-family:var(--f-latin);font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--c-gold);border:1px solid rgba(160,120,64,.3);display:inline-block;padding:2px 8px;margin-bottom:10px">10 Sessions</p>
+          <p style="font-family:var(--f-serif);font-size:.88rem;color:var(--c-ink);margin-bottom:2px">10回券</p>
+          <p style="font-size:.68rem;color:var(--c-ink3);margin-bottom:10px">有効期限1年</p>
+          <p style="font-family:var(--f-latin);font-size:1.7rem;font-weight:300;color:var(--c-gold)">72,100<span style="font-size:.6rem;font-family:var(--f-sans);color:var(--c-ink3);margin-left:2px">円（税込）</span></p>
+          <p style="font-size:.68rem;color:var(--c-ink3);margin-top:4px">現金価格 69,800円</p>
+        </div>
+
+      </div>
+      <p style="font-size:.72rem;color:var(--c-ink3);line-height:2">
+        ※ すべて50分・完全プライベートレッスン（税込）&ensp;／&ensp;お試し2回以降は回数券をご購入ください。
+      </p>
+      <p style="font-size:.72rem;color:var(--c-ink2);line-height:2;margin-top:8px;padding:10px 14px;background:rgba(168,126,66,.08);border-left:2px solid var(--c-gold);border-radius:0 4px 4px 0">
+        ※ 当院を初めてご利用の方へ &ensp;お体チェックのため、初回のみ60分の施術をお受けください。<span style="margin-left:6px;color:var(--c-gold)">（60分　税込 6,950円）</span>
+      </p>
+    </div>
+
+    <div class="courses-consult" data-reveal>
+      <span class="courses-consult__icon">✦</span>
+      <p class="courses-consult__text">
+        どのコースが自分に合うか迷っている方は、まずお気軽にご相談ください。
+        副院長・萩原朝香が体の状態をお聞きして、最適なコースをご提案します。
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:4px">
+        <a href="https://lin.ee/WxOBVcp" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#06C755;color:#fff;font-size:.78rem;font-weight:400;padding:11px 22px;border-radius:4px;text-decoration:none;transition:background .3s" onmouseover="this.style.background='#05b84d'" onmouseout="this.style.background='#06C755'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.63 0 .344-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.628-.63.628H16.98a.627.627 0 0 1-.627-.628V8.108c0-.345.282-.63.63-.63h2.382c.349 0 .63.285.63.63 0 .344-.281.628-.63.628H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031a.63.63 0 0 1-.568-.347l-2.243-3.076v2.794c0 .346-.282.63-.63.63a.627.627 0 0 1-.629-.63V8.108c0-.27.173-.51.43-.595a.621.621 0 0 1 .197-.033.626.626 0 0 1 .568.344l2.243 3.076V8.108c0-.345.282-.63.63-.63.346 0 .63.285.63.63v4.771zm-5.741 0c0 .346-.282.63-.63.63a.627.627 0 0 1-.629-.63V8.108c0-.345.282-.63.63-.63.346 0 .63.285.63.63v4.771zm-2.466.629H5.026a.627.627 0 0 1-.629-.628V8.108c0-.345.282-.63.63-.63.346 0 .63.285.63.63v4.141h1.872c.346 0 .627.283.627.628 0 .346-.281.631-.627.631zM24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314z"/></svg>
+          LINEで無料相談する
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  CAMPAIGN
+═══════════════════════════════════════════ -->
+<section id="campaign" class="section">
+  <div class="wrap">
+    <div class="section-head center" data-reveal>
+      <span class="label">Campaign</span>
+      <h2 class="title-serif" style="color:#fff">キャンペーン</h2>
+      <span class="line line--c" style="margin-top:22px"></span>
+    </div>
+
+    <div data-reveal style="text-align:center;padding:clamp(32px,5vw,56px) 0;color:rgba(255,255,255,.7);font-family:var(--f-serif);font-size:1.05rem;letter-spacing:.06em">
+      現在、実施しているキャンペーンはありません。
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+  FAQ
+═══════════════════════════════════════════ -->
+<section id="faq" class="section" style="background:linear-gradient(160deg,#263428 0%,#2a2818 100%)">
+  <div class="wrap">
+    <div class="section-head center" data-reveal>
+      <span class="label">FAQ</span>
+      <h2 class="title-serif" style="font-size:clamp(1.55rem,3vw,2.4rem);color:#fff">
+        よくある質問
+      </h2>
+      <span class="line line--c" style="margin-top:22px"></span>
+      <p style="font-size:.86rem;font-weight:200;color:rgba(255,255,255,.45);line-height:2.2;margin-top:20px;max-width:560px;margin-left:auto;margin-right:auto">
+        初めてご来院の方や施術についてのご不明点をまとめました。
+      </p>
+    </div>
+
+    <div class="faq-list">
+
+      <!-- 施術について -->
+      <div style="padding:8px 0 8px" data-reveal>
+        <p style="font-family:var(--f-latin);font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--c-gold2)">Treatment</p>
+        <p style="font-family:var(--f-serif);font-size:1.05rem;color:rgba(255,255,255,.85);margin-top:8px;letter-spacing:.04em">施術について</p>
+        <div style="width:36px;height:1px;background:var(--c-gold);margin-top:14px"></div>
+      </div>
+
+      <div class="faq-item" data-reveal>
+        <p class="faq-q">はぎわら治療院ではどのような施術を行っていますか？</p>
+        <p class="faq-a">手技療法とはりきゅうを中心に治療を行っています。その中でも特に大切にしているのが「指圧」と「はり」です。それぞれの深みを追求しながら、お一人おひとりに最適な施術をご提供します。</p>
+      </div>
+
+      <div class="faq-item" data-reveal data-delay="1">
+        <p class="faq-q">指圧とはどのような施術ですか？</p>
+        <p class="faq-a">指圧は、疾病の予防や治療を目的とし日本で考案された繊細な技術です。コリやツボを的確にとらえ、その圧がじわっと深部に広がる感覚は大変気持ちのよいものです。</p>
+      </div>
+
+      <div class="faq-item" data-reveal data-delay="2">
+        <p class="faq-q">指圧にはどのような効果がありますか？</p>
+        <p class="faq-a">気持ちよさが体に及ぼす効果も重要です。神経反射の作用により内臓機能を高め、全身状態を整えます。気持ちよさ自体が、体の回復に深く関わっているのです。</p>
+      </div>
+
+      <div class="faq-item" data-reveal>
+        <p class="faq-q">はり（鍼）はどのような症状に向いていますか？</p>
+        <p class="faq-a">はりは、痛みを軽減する力にすぐれています。頭痛・肩こり・腰痛・神経の興奮による神経痛などとの相性がよく、効果的に作用します。</p>
+      </div>
+
+      <div class="faq-item" data-reveal data-delay="1">
+        <p class="faq-q">指圧とはりを組み合わせると、どのような効果がありますか？</p>
+        <p class="faq-a">ピンと突っ張った筋肉にはりを刺すとすっと緩み、その後に指圧を施すとより深い部分に指が入り治療効果が上がります。当院での経験から、この組み合わせは非常に高い効果を発揮することを確認しています。</p>
+      </div>
+
+      <div class="faq-item" data-reveal data-delay="2">
+        <p class="faq-q">施術内容は事前に決める必要がありますか？</p>
+        <p class="faq-a">事前にお決めいただく必要はありません。患者様の状態を見極め、効果が最大限に発揮できる治療法をその場で判断して施術しております。安心してお任せください。</p>
+      </div>
+
+      <!-- 妊娠されている方へ -->
+      <div style="padding:32px 0 8px;margin-top:8px" data-reveal>
+        <p style="font-family:var(--f-latin);font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--c-gold2)">For Expecting Mothers</p>
+        <p style="font-family:var(--f-serif);font-size:1.05rem;color:rgba(255,255,255,.85);margin-top:8px;letter-spacing:.04em">妊娠されている方へ</p>
+        <div style="width:36px;height:1px;background:var(--c-gold);margin-top:14px"></div>
+      </div>
+
+      <div class="faq-item" data-reveal>
+        <p class="faq-q">妊娠中でも施術を受けることができますか？</p>
+        <p class="faq-a">はい、事前に詳しくお話をうかがい、リスクの心配がないと判断できれば施術をさせていただいています。まずはお気軽にご相談ください。</p>
+      </div>
+
+      <div class="faq-item" data-reveal data-delay="1">
+        <p class="faq-q">妊娠初期（12週未満）でも大丈夫ですか？</p>
+        <p class="faq-a">一般的に妊娠12週目までは流産などのリスクが高いとされています。安定期に入ってからは軽度の運動なども開始できるなど、ある程度の刺激を与えても問題ないとのデータがあります。安全を第一に考え、時期や状態に応じて慎重に対応いたします。</p>
+      </div>
+
+      <div class="faq-item" data-reveal data-delay="2">
+        <p class="faq-q">妊娠中に押してはいけないツボがあると聞きましたが、大丈夫ですか？</p>
+        <p class="faq-a">そのような説も多々あるようですが、よほどの刺激を与えない限りトラブルが起きるケースはないようです。当院では安全を第一に考え、過度の刺激は与えないよう細心の注意を払って施術しております。</p>
+      </div>
+
+      <div class="faq-item" data-reveal>
+        <p class="faq-q">妊娠中の腰痛・臀部痛・むくみなども相談できますか？</p>
+        <p class="faq-a">もちろんです。妊娠中は様々な制限があり、腰痛・臀部痛・むくみなどのつらさを我慢して過ごしている方も多いことでしょう。遠慮なくお問い合わせください。</p>
+      </div>
+
+      <!-- 服装について -->
+      <div style="padding:32px 0 8px;margin-top:8px" data-reveal>
+        <p style="font-family:var(--f-latin);font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--c-gold2)">Attire</p>
+        <p style="font-family:var(--f-serif);font-size:1.05rem;color:rgba(255,255,255,.85);margin-top:8px;letter-spacing:.04em">施術時の服装について</p>
+        <div style="width:36px;height:1px;background:var(--c-gold);margin-top:14px"></div>
+      </div>
+
+      <div class="faq-item" data-reveal>
+        <p class="faq-q">施術時の服装はどうすればよいですか？</p>
+        <p class="faq-a">そのままの服装でも施術はできますが、無料でお着換えもご準備しています。お気軽にご利用ください。</p>
+      </div>
+
+      <!-- 駐車場について -->
+      <div style="padding:32px 0 8px;margin-top:8px" data-reveal>
+        <p style="font-family:var(--f-latin);font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--c-gold2)">Parking</p>
+        <p style="font-family:var(--f-serif);font-size:1.05rem;color:rgba(255,255,255,.85);margin-top:8px;letter-spacing:.04em">駐車場について</p>
+        <div style="width:36px;height:1px;background:var(--c-gold);margin-top:14px"></div>
+      </div>
+
+      <div class="faq-item" data-reveal>
+        <p class="faq-q">駐車場はありますか？</p>
+        <p class="faq-a">申し訳ありませんが、当院では駐車場をご用意しておりません。お近くのコインパーキングをご利用ください。当院の目の前にもコインパーキングがございます。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+  CANCEL POLICY
+═══════════════════════════════════════════ -->
+<section id="cancel" class="section section--cream">
+  <div class="wrap">
+    <div class="section-head center" data-reveal>
+      <span class="label">Cancel Policy</span>
+      <h2 class="title-serif">キャンセルポリシー</h2>
+      <span class="line line--c" style="margin-top:22px"></span>
+    </div>
+
+    <div class="cancel-intro" data-reveal>
+      <p>当院では、ご予約の際に担当者の施術時間・スタジオ枠を専用に確保しております。キャンセルが発生した場合、その時間帯に他の患者様をご案内することができなくなるため、キャンセルポリシーを設けております。ご不便をおかけいたしますが、何卒ご理解のほどよろしくお願い申し上げます。</p>
+    </div>
+
+    <div class="cancel-grid" data-reveal>
+
+      <!-- 施術 -->
+      <div class="cancel-block">
+        <div class="cancel-block-head">
+          <span class="cancel-block-label">Acupuncture &amp; Shiatsu</span>
+          <p class="cancel-block-name">施術（鍼灸・指圧・マッサージ）</p>
+        </div>
+        <div class="cancel-block-body">
+          <div class="cancel-row">
+            <span class="cancel-timing">当日キャンセル</span>
+            <span class="cancel-fee">施術料金 全額</span>
+          </div>
+          <p style="font-size:.76rem;font-weight:200;color:var(--c-ink3);line-height:1.9;padding:10px 0 14px">前日までのキャンセルはキャンセル料はかかりません。お早めにご連絡ください。</p>
+        </div>
+      </div>
+
+      <!-- ピラティス -->
+      <div class="cancel-block">
+        <div class="cancel-block-head">
+          <span class="cancel-block-label">ASAKA Medical Pilates</span>
+          <p class="cancel-block-name">ピラティス</p>
+        </div>
+        <div class="cancel-block-body">
+          <div class="cancel-row">
+            <span class="cancel-timing">前日キャンセル</span>
+            <span class="cancel-fee">チケット 1枚分</span>
+          </div>
+          <div class="cancel-row">
+            <span class="cancel-timing">当日キャンセル</span>
+            <span class="cancel-fee">チケット 2枚分</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="cancel-note" data-reveal>やむを得ない事情がある場合は、できる限りお早めにご連絡くださいますようお願いいたします。<br>ご予約・キャンセルはお電話または LINE にてご連絡ください。</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+  ACCESS
+═══════════════════════════════════════════ -->
+<section id="access" class="section section--deeper">
+  <div class="wrap">
+    <div class="section-head center" data-reveal>
+      <span class="label">Access</span>
+      <h2 class="title-serif" style="font-size:clamp(1.55rem,3vw,2.4rem)">
+        アクセス・診療時間
+      </h2>
+      <span class="line line--c" style="margin-top:22px"></span>
+    </div>
+
+    <div class="access-grid">
+      <div class="access-map" data-reveal>
+        <!-- Google Maps iframe をここに差し込んでください -->
+        <div class="map-hold">
+          <p>Google マップを表示</p>
+          <p style="font-size:.68rem">横浜市青葉区榎が丘2-1 ビンセプト</p>
+        </div>
+      </div>
+
+      <div data-reveal data-delay="2">
+        <h3 class="access-info__title">はぎわら治療院</h3>
+        <table class="access-table">
+          <tr>
+            <td>住所</td>
+            <td>〒227-0063<br>横浜市青葉区榎が丘2-1<br>ビンセプト 203号（治療院・2F）<br>301号（ASAKAメディカルピラティス・3F）</td>
+          </tr>
+          <tr>
+            <td>電話</td>
+            <td>045-530-9072</td>
+          </tr>
+          <tr>
+            <td>診療時間</td>
+            <td>10:00〜20:00（最終受付）<br>定休日：水曜（臨時休業あり）</td>
+          </tr>
+          <tr>
+            <td>最寄駅</td>
+            <td>東急田園都市線 青葉台駅 徒歩3分</td>
+          </tr>
+          <tr>
+            <td>バス</td>
+            <td>えのき橋バス停 徒歩30秒</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+  CONTACT
+═══════════════════════════════════════════ -->
+<section id="contact" class="section">
+  <div class="wrap wrap--narrow">
+    <span class="label" data-reveal style="display:block;margin-bottom:16px">Reservation &amp; Contact</span>
+    <h2 class="contact-heading" data-reveal data-delay="1">ご予約・お問い合わせ</h2>
+    <p class="contact-body" data-reveal data-delay="2">
+      お電話またはLINEにてお気軽にご相談ください。<br>
+      初めての方にも丁寧にご対応いたします。
+    </p>
+    <a href="tel:045-530-9072" class="contact-tel" data-reveal data-delay="2">045-530-9072</a>
+    <p class="contact-hours" data-reveal data-delay="2">
+      受付時間　10:00〜20:00（最終受付）　／　定休日：水曜（臨時休業あり）
+    </p>
+    <div class="contact-btns" data-reveal data-delay="3">
+      <a href="https://lin.ee/WxOBVcp" target="_blank" rel="noopener" class="btn btn-ghost-w">LINEで相談する</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+  FOOTER
+═══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <p class="footer-brand-ja">はぎわら治療院</p>
+      <span class="footer-brand-en">Hagiwara Clinic</span>
+      <p class="footer-desc">
+        横浜市青葉区にて、指圧・鍼灸・<br>
+        マッサージ・メディカルピラティスを通じ、<br>
+        心身の本質的な回復を目指しています。
+      </p>
+      <p class="footer-address">
+        〒227-0063 横浜市青葉区榎が丘2-1<br>
+        ビンセプト 203号（治療院・2F）/ 301号（ピラティス・3F）
+      </p>
+    </div>
+    <div>
+      <span class="footer-col-head">Menu</span>
+      <ul class="footer-links">
+        <li><a href="#philosophy">院の理念</a></li>
+        <li><a href="#media-section">動画</a></li>
+        <li><a href="#services">施術案内</a></li>
+        <li><a href="#pricing">料金表</a></li>
+        <li><a href="#staff">スタッフ紹介</a></li>
+        <li><a href="#pilates">ピラティス</a></li>
+        <li><a href="#courses">ピラティスコース・料金表</a></li>
+        <li><a href="#campaign">キャンペーン</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+        <li><a href="#cancel">キャンセルポリシー</a></li>
+        <li><a href="#access">アクセス・診療時間</a></li>
+      </ul>
+    </div>
+    <div>
+      <span class="footer-col-head">Contact</span>
+      <ul class="footer-links">
+        <li><a href="#contact">ご予約・お問い合わせ</a></li>
+        <li><a href="#">LINEで相談</a></li>
+        <li><a href="#">初めての方へ</a></li>
+        <li><a href="#">よくある質問</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2025 Hagiwara Clinic. All rights reserved.</p>
+    <div class="footer-badges">
+      <span class="footer-badge">国家資格保有</span>
+      <span class="footer-badge">横浜市青葉区 榎が丘</span>
+      <span class="footer-badge">2F 治療院 / 3F ピラティス</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════
+  SCRIPTS
+═══════════════════════════════════════════ -->
+<script>
+// ── Nav
+const nav = document.getElementById('site-nav');
+function updateNav(){ nav.classList.toggle('scrolled', window.scrollY > 40) }
+window.addEventListener('scroll', updateNav, {passive:true});
+updateNav();
+
+// ── Scroll reveal
+const revealItems = document.querySelectorAll('[data-reveal]');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target) }
+  });
+}, {threshold:.1, rootMargin:'0px 0px -40px 0px'});
+revealItems.forEach(el => io.observe(el));
+
+// ── Mobile drawer
+function openDrawer(){
+  document.getElementById('nav-drawer').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeDrawer(){
+  document.getElementById('nav-drawer').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('nav-drawer').addEventListener('click', e => {
+  if(e.target === e.currentTarget) closeDrawer();
+});
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeDrawer() });
+</script>
+
+</body>
+</html>
