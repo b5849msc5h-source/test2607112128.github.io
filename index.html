@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@200;300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 
-
 /* ─────────────────────────────────────────────
    TOKENS
 ───────────────────────────────────────────── */
@@ -151,7 +150,7 @@ button{cursor:pointer;background:none;border:none;font:inherit}
 #site-nav.scrolled .nav-logo__ja{color:var(--c-ink)}
 #site-nav.scrolled .nav-logo__en{color:var(--c-gold)}
 
-.nav-menu{display:flex;align-items:center;gap:32px}
+.nav-menu{display:none;align-items:center;gap:32px}
 .nav-menu a{
   font-family:var(--f-sans);
   font-size:.72rem;
@@ -185,7 +184,7 @@ button{cursor:pointer;background:none;border:none;font:inherit}
 #site-nav.scrolled .nav-book:hover{background:var(--c-gold) !important;color:#fff !important}
 
 .nav-burger{
-  display:none;flex-direction:column;gap:5px;
+  display:flex;flex-direction:column;gap:5px;
   padding:6px;
 }
 .nav-burger span{
@@ -199,7 +198,7 @@ button{cursor:pointer;background:none;border:none;font:inherit}
 #nav-drawer{
   display:none;
   position:fixed;inset:0;
-  z-index:490;
+  z-index:510;
   background:rgba(248,245,240,.98);
   backdrop-filter:blur(20px);
   flex-direction:column;
@@ -1648,14 +1647,7 @@ footer{
 /* ─────────────────────────────────────────────
    RESPONSIVE
 ───────────────────────────────────────────── */
-@media(max-width:3000px){
-  .nav-menu{display:none}
-  .nav-burger{display:flex}
-
 @media(max-width:900px){
-  .nav-menu{display:none}
-  .nav-burger{display:flex}
-
   #philosophy .inner{grid-template-columns:1fr}
   .svc-grid{grid-template-columns:1fr}
   .staff-grid{grid-template-columns:1fr}
@@ -1665,6 +1657,9 @@ footer{
   .access-grid{grid-template-columns:1fr}
   .footer-inner{grid-template-columns:1fr;gap:36px}
   .media-grid{grid-template-columns:1fr}
+  .pricing-top-grid{grid-template-columns:1fr !important}
+  .pricing-beauty-grid{grid-template-columns:1fr !important}
+  .pilates-info-grid{grid-template-columns:1fr !important}
 
   .hero-photo{width:100%;opacity:.15}
   .hero-photo::before{background:var(--c-forest)}
@@ -1679,7 +1674,6 @@ footer{
   #closure{flex-direction:column;gap:12px}
   .footer-bottom{flex-direction:column;align-items:flex-start}
   .courses-consult{flex-direction:column;align-items:flex-start}
-  .pricing-top-grid{grid-template-columns:1fr}
   .cancel-grid{grid-template-columns:1fr}
   .pilates-section-head{
     flex-direction:column;      /* 横並び→縦積みに変更 */
@@ -1718,7 +1712,7 @@ footer{
     <li><a href="#access">アクセス・診療時間</a></li>
     <li><a href="#contact" class="nav-book">ご予約</a></li>
   </ul>
-  <button class="nav-burger" onclick="openDrawer()" aria-label="メニューを開く">
+  <button class="nav-burger" onclick="toggleDrawer()" aria-label="メニューを開閉">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -2183,7 +2177,7 @@ footer{
     </div>
 
     <!-- 美容鍼灸 + オプション -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.5vw,22px)" data-reveal>
+    <div class="pricing-beauty-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.5vw,22px)" data-reveal>
 
       <!-- 美容鍼灸 -->
       <div style="background:#fff;border:1px solid rgba(120,100,80,.12);border-radius:8px;overflow:hidden;box-shadow:0 2px 16px rgba(40,28,18,.07)">
@@ -2556,7 +2550,7 @@ footer{
     </div>
 
     <!-- 持ち物・キャンセル・プロフィール -->
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(14px,3vw,24px)" data-reveal>
+    <div class="pilates-info-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(14px,3vw,24px)" data-reveal>
 
       <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:clamp(18px,3vw,26px)">
         <p style="font-family:var(--f-latin);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(192,152,80,.65);margin-bottom:14px">What to Bring</p>
@@ -3165,6 +3159,10 @@ function openDrawer(){
 function closeDrawer(){
   document.getElementById('nav-drawer').classList.remove('open');
   document.body.style.overflow='';
+}
+function toggleDrawer(){
+  const isOpen = document.getElementById('nav-drawer').classList.contains('open');
+  isOpen ? closeDrawer() : openDrawer();
 }
 document.getElementById('nav-drawer').addEventListener('click', e => {
   if(e.target === e.currentTarget) closeDrawer();
